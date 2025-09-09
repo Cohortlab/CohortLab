@@ -49,7 +49,6 @@ export function Testimonials() {
       </div>
       <div className="flex justify-center mb-10">
       <AnimatedTestimonials testimonials={testimonials} />
-      <AnimatedTestimonials testimonials={testimonials} />
     </div></div>
   );
 }

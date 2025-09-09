@@ -37,10 +37,10 @@ export function Floating() {
       title: "Aceternity UI",
       icon: (
         <img
-          src="https://assets.aceternity.com/logo-dark.png"
+          src="/5.png"
           width={20}
           height={20}
-          alt="Aceternity Logo" />
+          alt="Home" />
       ),
       href: "#",
     },
