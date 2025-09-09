@@ -1,21 +1,16 @@
+"use client";
 import React from "react";
 import { EvervaultCard, Icon } from "@/components/ui/evervault-card";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
+import { motion } from "motion/react";
+import { LampContainer } from "@/components/ui/lamp";
+
+import { WobbleCard } from "@/components/ui/wobble-card";
 
 export function ServiceCard() {
   return (
-    <div>
-    
-    <div className="w-full min-h-screen bg-[#18181b] bg-[url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'40\' height=\'40\' fill=\'%23222226\'/><path d=\'M0 0L40 40M40 0L0 40\' stroke=\'%2328282d\' stroke-width=\'0.5\'/></svg>')] bg-repeat rounded-none p-0 relative overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="pointer-events-none absolute inset-0 z-0 animate-[gradientMove_8s_ease-in-out_infinite] bg-gradient-to-tr from-purple-800/30 via-blue-700/20 to-gray-900/30 blur-2xl opacity-60" style={{backgroundSize:'200% 200%'}} />
-      <style>{`
-        @keyframes gradientMove {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
-      <div className="relative z-10 mx-auto max-w-7xl py-16">
+    <LampContainer>
+      <div className="relative z-10 mx-auto max-w-7xl py-16 mt-70">
         <div className="mt-20 mx-auto max-w-lg mb-10 py-2 text-2xl font-bold tracking-tight md:text-4xl">
             Our Portfolio.... <span>&amp;&amp;</span>
             <PointerHighlight>
@@ -42,7 +37,7 @@ export function ServiceCard() {
               <Icon className="absolute h-6 w-6 -bottom-3 -left-3 text-purple-400 dark:text-purple-300" />
               <Icon className="absolute h-6 w-6 -top-3 -right-3 text-blue-400 dark:text-blue-300" />
               <Icon className="absolute h-6 w-6 -bottom-3 -right-3 text-purple-400 dark:text-purple-300" />
-              <EvervaultCard text="Website Translation / Localization" />
+              <EvervaultCard text="Website Translation/ Localization" />
               <h2 className="dark:text-white text-black mt-4 text-base font-semibold">Expand globally by making your website available in multiple languages with cultural accuracy.</h2>
             </div>
             <div className="group m-0 border border-gray-200 dark:border-gray-700 flex flex-col items-start max-w-sm p-6 relative h-[28rem] rounded-2xl shadow-lg bg-white/80 dark:bg-gray-800/80 transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
@@ -108,7 +103,7 @@ export function ServiceCard() {
               <h2 className="dark:text-white text-black mt-4 text-base font-semibold">Data-driven insights with tools like Google Analytics to measure and improve results.</h2>
             </div>
 
-            <div className="col-span-3 flex items-center gap-2 mb-2">
+            <div className="col-span-3 flex items-center gap-2 mb-2 mt-10">
               <span className="inline-block w-2 h-10 bg-gradient-to-b from-white via-neutral-400 to-white rounded-full"></span>
               <span className="text-3xl font-medium bg-gradient-to-r from-white via-neutral-400 to-white bg-clip-text text-transparent tracking-widest uppercase">Marketing & Branding</span>
             </div>
@@ -206,7 +201,6 @@ export function ServiceCard() {
             {/* Cards end */}
           </div>
         </div>
-      </div>
-    </div>
+    </LampContainer>
   );
 }

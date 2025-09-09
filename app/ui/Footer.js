@@ -1,0 +1,70 @@
+// components/Footer.jsx
+import React from "react";
+import Image from "next/image";
+import { Meteors } from "@/components/ui/meteors";
+
+export default function Footer() {
+  return (
+    <div className="relative w-full max-w-7xl mx-auto">
+      {/* Meteor background effect */}
+      <div className="absolute inset-0 h-full w-full scale-[0.95] transform rounded-2xl bg-gradient-to-r from-blue-500 to-teal-500 blur-3xl opacity-40 pointer-events-none" />
+      <footer className="mt-16 z-20 relative flex flex-col items-start justify-end overflow-hidden rounded-2xl border border-gray-800 bg-black/70 backdrop-blur-sm px-4 py-8 shadow-xl">
+        {/* Meteor animation */}
+        <Meteors number={20} />
+        <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+          {/* Logo and Image */}
+          <div>
+            <Image
+              src="/3.png"
+              alt="CohortLab logo"
+              width={500}
+              height={300}
+              className="mb-4 max-w-[220px] h-auto"
+            />
+            <p className="text-sm text-gray-400">
+              All rights are reserved by CohortLab.
+            </p>
+          </div>
+
+          {/* Product Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">Product</h3>
+            <ul className="text-gray-400 space-y-2">
+              <li>job.CohortLab</li>
+              <li>FreeLance.CohortLab</li>
+              <li>Sync.CohortLab</li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">Contact Us</h3>
+            <ul className="text-gray-400 space-y-2">
+              <li>X</li>
+              <li>LinkedIn</li>
+              <li>Mail</li>
+              <li>Phone</li>
+            </ul>
+          </div>
+
+          {/* Features */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">Features</h3>
+            <ul className="text-gray-400 space-y-2">
+              <li>Website Design & Development</li>
+              <li>Website Translation / Localization</li>
+              <li>UI/UX Design</li>
+              <li>E-commerce Development</li>
+              <li>CMS Development</li>
+              <li>Conversion Rate Optimization (CRO)</li>
+              <li>Brand Identity Design</li>
+              <li>AI Integrations</li>
+              <li>Mobile App Development</li>
+              <li>24/7 Technical Support and more...</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

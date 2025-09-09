@@ -258,7 +258,7 @@ const Agile = () => {
           transition={{ duration: 0.8, delay: 2 }}
         >
           <div className="flex items-center space-x-8 bg-gradient-to-r from-gray-700/80 to-gray-900/80 backdrop-blur-lg border border-white/20 px-8 py-4 rounded-full shadow-lg">
-            <span className="text-white font-semibold">Continuous Process</span>
+            <span className="text-white font-semibold">Easy Building </span>
             <motion.svg 
               width="40" 
               height="20" 
