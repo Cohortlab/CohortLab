@@ -25,12 +25,16 @@ export function NavbarMain() {
       name: "Contact",
       link: "#contact",
     },
+    {
+      name: "Join",
+      link: "#join",
+    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full mt-10">
       <Navbar className="bg-blur-md">
         {/* Desktop Navigation */}
         <NavBody>
@@ -85,6 +89,6 @@ export function NavbarMain() {
 
 const Content = () => {
   return (
-    <div> check </div>
+    <div> </div>
   );
 };
