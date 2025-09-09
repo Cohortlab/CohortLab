@@ -99,6 +99,30 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+.notebook-card {
+  background: repeating-linear-gradient(
+    white,
+    white 24px,
+    #e5e7eb 25px /* light gray ruled line */
+  );
+  border: 1px solid #d1d5db; /* gray-300 border */
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* red margin line (like real notebooks) */
+.notebook-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 45px;
+  height: 100%;
+  width: 2px;
+  background-color: #f87171; /* red-400 */
+}
+
+
 /* Base styles */
 @layer base {
   * {

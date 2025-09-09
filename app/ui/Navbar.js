@@ -14,34 +14,43 @@ import { useState } from "react";
 export function NavbarMain() {
   const navItems = [
     {
-      name: "Features",
-      link: "#features",
+      name: "Services",
+      link: "#services",
     },
     {
-      name: "Pricing",
-      link: "#pricing",
+      name: "Products",
+      link: "#products",
     },
+   
     {
-      name: "Contact",
-      link: "#contact",
+      name: "Blog",
+      link: "#blog",
     },
+    
     {
-      name: "Join",
+      name: "About",
+      link: "#about",
+    },{
+      name: "Join Us",
       link: "#join",
+    },
+    {
+      name: "Contact Us",
+      link: "#contact",
     },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="relative w-full mt-10">
+    <div className="relative w-full mt-5">
       <Navbar className="bg-blur-md">
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
+          <div className="flex items-center gap-4 border-4 p-2 rounded-xl">
+            <NavbarButton variant="secondary">Get Free Consultancy</NavbarButton>
             <NavbarButton variant="primary">Book a call</NavbarButton>
           </div>
         </NavBody>
@@ -65,13 +74,8 @@ export function NavbarMain() {
                 <span className="block">{item.name}</span>
               </a>
             ))}
-            <div className="flex w-full flex-col gap-4">
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full">
-                Login
-              </NavbarButton>
+            <div className="flex w-full flex-col gap-4 border">
+              
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"

@@ -20,7 +20,7 @@ export function Hero3() {
         }}
         className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto ">
         Passionate about design. Driven by technology.
-We create websites and digital products that inspire, engage, and grow your{" "}
+          We create websites and digital products that inspire, engage, and grow your{" "}
         <Highlight className="text-black dark:text-white">
           Business.
         </Highlight>
