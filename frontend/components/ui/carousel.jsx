@@ -135,15 +135,16 @@ export default function Carousel({
   slides
 }) {
   const [current, setCurrent] = useState(0);
+  const totalSlides = slides.length + 1;
 
   const handlePreviousClick = () => {
     const previous = current - 1;
-    setCurrent(previous < 0 ? slides.length - 1 : previous);
+    setCurrent(previous < 0 ? totalSlides - 1 : previous);
   };
 
   const handleNextClick = () => {
     const next = current + 1;
-    setCurrent(next === slides.length ? 0 : next);
+    setCurrent(next === totalSlides ? 0 : next);
   };
 
   const handleSlideClick = (index) => {
@@ -161,7 +162,7 @@ export default function Carousel({
       <ul
         className="absolute flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
         style={{
-          transform: `translateX(-${current * (100 / slides.length)}%)`,
+          transform: `translateX(-${current * (100 / (slides.length + 1))}%)`,
         }}>
         {slides.map((slide, index) => (
           <Slide
@@ -171,6 +172,30 @@ export default function Carousel({
             current={current}
             handleSlideClick={handleSlideClick} />
         ))}
+        {/* Confidentiality message  */}
+        <li
+          className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[70vmin] h-[70vmin] mx-[4vmin] z-10"
+          style={{
+            transform: current !== slides.length ? "scale(0.98) rotateX(8deg)" : "scale(1) rotateX(0deg)",
+            transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+            transformOrigin: "bottom",
+          }}
+        >
+          <div className="flex flex-col items-center justify-center w-full h-full gap-2 animate-fadeinup">
+            <span className="text-center text-lg font-medium bg-gradient-to-r from-gray-400 via-gray-200 to-white bg-clip-text text-transparent drop-shadow-sm tracking-wide">
+              Many of our projects are protected by
+            </span>
+            <span className="text-center text-lg font-medium bg-gradient-to-r from-gray-400 via-gray-200 to-white bg-clip-text text-transparent drop-shadow-sm tracking-wide">
+              confidentiality agreements,
+            </span>
+            <span className="text-center text-lg font-medium bg-gradient-to-r from-gray-400 via-gray-200 to-white bg-clip-text text-transparent drop-shadow-sm tracking-wide">
+              which limits what we can display here.
+            </span>
+            <span className="text-center text-lg font-medium bg-gradient-to-r from-gray-400 via-gray-200 to-white bg-clip-text text-transparent drop-shadow-sm tracking-wide mt-4">
+              We respect our Clients and their policies.
+            </span>
+          </div>
+        </li>
       </ul>
       <div className="absolute flex justify-center w-full top-[calc(100%+1rem)]">
         <CarouselControl
@@ -180,6 +205,10 @@ export default function Carousel({
 
         <CarouselControl type="next" title="Go to next slide" handleClick={handleNextClick} />
       </div>
+      <style jsx global>{`
+@keyframes fadeinup { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+.animate-fadeinup { animation: fadeinup 1.2s cubic-bezier(0.4,0,0.2,1) both; }
+`}</style>
     </div>
   );
 }
