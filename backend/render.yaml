@@ -2,8 +2,23 @@ services:
   - type: web
     name: cohortlab-backend
     env: node
+    region: ohio
     buildCommand: npm install
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
+      - key: MONGODB_URI
+        sync: false  # This should be set in Render dashboard
+      - key: DB_NAME
+        value: cohortlab
+      - key: FRONTEND_URL
+        value: https://cohort-lab.vercel.app
+      - key: FRONTEND_URL_PROD
+        value: https://cohort-lab.vercel.app
+      - key: FRONTEND_URL_DEV
+        value: http://localhost:3000
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 100

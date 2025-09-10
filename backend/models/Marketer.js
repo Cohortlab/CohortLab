@@ -57,6 +57,16 @@ const marketerSchema = new mongoose.Schema({
       default: Date.now
     }
   },
+  resumeGoogleDriveUrl: {
+    type: String,
+    trim: true,
+    validate: {
+      validator: function(v) {
+        return !v || /^https?:\/\/drive\.google\.com\/|^https?:\/\/docs\.google\.com\//.test(v);
+      },
+      message: 'Please provide a valid Google Drive URL'
+    }
+  },
   status: {
     type: String,
     enum: ['pending', 'reviewing', 'approved', 'rejected'],

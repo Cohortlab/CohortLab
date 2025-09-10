@@ -5,16 +5,30 @@ const fs = require('fs');
 const Marketer = require('../models/Marketer');
 const router = express.Router();
 
-// Create uploads directory if it doesn't exist
+// Create uploads directory if it doesn't exist (only if file uploads are supported)
 const uploadsDir = path.join(__dirname, '..', 'uploads', 'marketer-resumes');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
+try {
+  if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+  }
+} catch (error) {
+  console.warn('Unable to create uploads directory:', error.message);
+  console.warn('File uploads will not be available in this environment');
 }
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, uploadsDir);
+    try {
+      // Ensure directory exists before using it
+      if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
+      }
+      cb(null, uploadsDir);
+    } catch (error) {
+      console.error('Error setting upload destination:', error);
+      cb(error);
+    }
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -41,8 +55,32 @@ const upload = multer({
   }
 });
 
+// Custom middleware to handle optional file upload
+const optionalUpload = (req, res, next) => {
+  // If resumeGoogleDriveUrl is provided, skip file upload processing
+  if (req.body.resumeGoogleDriveUrl?.trim() && !req.file) {
+    return next();
+  }
+  
+  upload.single('resume')(req, res, (err) => {
+    if (err) {
+      console.error('Multer error:', err);
+      // If there's an error but Google Drive URL is provided, continue
+      if (req.body.resumeGoogleDriveUrl?.trim()) {
+        console.log('File upload failed but Google Drive URL provided, continuing...');
+        return next();
+      }
+      return res.status(400).json({
+        status: 'error',
+        message: err.message || 'File upload error'
+      });
+    }
+    next();
+  });
+};
+
 // POST /api/marketer - Create new marketer application
-router.post('/', upload.single('resume'), async (req, res) => {
+router.post('/', optionalUpload, async (req, res) => {
   try {
     const {
       name,
@@ -50,7 +88,8 @@ router.post('/', upload.single('resume'), async (req, res) => {
       contactNumber,
       pastWorks,
       linkedinUrl,
-      portfolioWebsite
+      portfolioWebsite,
+      resumeGoogleDriveUrl
     } = req.body;
 
     // Check if marketer already exists
@@ -68,29 +107,37 @@ router.post('/', upload.single('resume'), async (req, res) => {
       });
     }
 
-    // Validate required file upload
-    if (!req.file) {
+    // Validate required resume - either file upload or Google Drive URL
+    if (!req.file && !resumeGoogleDriveUrl?.trim()) {
       return res.status(400).json({
         status: 'error',
-        message: 'Resume file is required'
+        message: 'Resume is required - either upload a file or provide a Google Drive URL'
       });
     }
 
     // Create new marketer
-    const marketer = new Marketer({
+    const marketerData = {
       name,
       email,
       contactNumber,
       pastWorks,
       linkedinUrl,
-      portfolioWebsite,
-      resume: {
+      portfolioWebsite
+    };
+
+    // Handle resume - either file upload or Google Drive URL
+    if (req.file) {
+      marketerData.resume = {
         filename: req.file.filename,
         originalName: req.file.originalname,
         mimetype: req.file.mimetype,
         size: req.file.size
-      }
-    });
+      };
+    } else if (resumeGoogleDriveUrl?.trim()) {
+      marketerData.resumeGoogleDriveUrl = resumeGoogleDriveUrl.trim();
+    }
+
+    const marketer = new Marketer(marketerData);
 
     await marketer.save();
 
@@ -115,6 +162,8 @@ router.post('/', upload.single('resume'), async (req, res) => {
     }
 
     console.error('Marketer application error:', error);
+    console.error('Request body:', req.body);
+    console.error('Request file:', req.file ? 'File present' : 'No file');
     
     if (error.name === 'ValidationError') {
       const validationErrors = Object.values(error.errors).map(err => err.message);
@@ -127,7 +176,8 @@ router.post('/', upload.single('resume'), async (req, res) => {
 
     res.status(500).json({
       status: 'error',
-      message: 'Failed to submit marketer application'
+      message: 'Failed to submit marketer application',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 });
