@@ -10,6 +10,8 @@ const newsletterRoutes = require('./routes/newsletter');
 const developerRoutes = require('./routes/developer');
 const marketerRoutes = require('./routes/marketer');
 const partnerRoutes = require('./routes/partner');
+const consultancyRoutes = require('./routes/consultancy');
+const bookCallRoutes = require('./routes/book-call');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -80,6 +82,10 @@ app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/developer', developerRoutes);
 app.use('/api/marketer', marketerRoutes);
 app.use('/api/partner', partnerRoutes);
+app.use('/api/consultancy', consultancyRoutes);
+app.use('/api/book-call', bookCallRoutes);
+app.use('/api/consultancy', consultancyRoutes);
+app.use('/api/book-call', bookCallRoutes);
 
 // 404 handler
 app.use('*', (req, res) => {

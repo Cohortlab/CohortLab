@@ -51,7 +51,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Features</h3>
             <ul className="text-gray-400 space-y-2">
-              <li>Website Design & Development</li>
+              <li>Website Design &amp; Development</li>
               <li>Website Translation / Localization</li>
               <li>UI/UX Design</li>
               <li>E-commerce Development</li>

@@ -32,7 +32,7 @@ export function Services2() {
           <GridItem
             area="md:[grid-area:1/1/2/7]"
             icon={<Box className="h-5 w-5 text-black dark:text-neutral-400" />}
-            title="Website Design & Development"
+            title="Website Design &amp; Development"
             description="We create modern, responsive, and high-performing websites tailored to your business goals."
           />
           <GridItem
@@ -93,7 +93,7 @@ export function Services2() {
           <GridItem
             area="md:[grid-area:2/1/3/13]"
             icon={<Settings className="h-5 w-5 text-black dark:text-neutral-400" />}
-            title="Analytics Setup & Tracking"
+            title="Analytics Setup &amp; Tracking"
             description="Data-driven insights with tools like Google Analytics to measure and improve results."
           />
         </ul>
@@ -159,7 +159,7 @@ export function Services2() {
           <GridItem
             area="md:[grid-area:2/1/3/13]"
             icon={<Cloud className="h-5 w-5 text-black dark:text-neutral-400" />}
-            title="Cloud Hosting & DevOps"
+            title="Cloud Hosting &amp; DevOps"
             description="Scalable, secure hosting with automated deployment and monitoring."
           />
         </ul>
@@ -183,7 +183,7 @@ export function Services2() {
           <GridItem
             area="md:[grid-area:1/5/2/9]"
             icon={<Shield className="h-5 w-5 text-black dark:text-neutral-400" />}
-            title="Security & Compliance"
+            title="Security &amp; Compliance"
             description="SSL, GDPR readiness, and penetration testing for complete online safety."
           />
           <GridItem

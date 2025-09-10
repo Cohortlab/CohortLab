@@ -100,7 +100,7 @@ const FloatingActionButtons = () => {
   return (
     <div className="fixed top-4 right-4 z-[5000] flex items-center gap-2">
       <Link
-        href="/call"
+        href="/call#consultancy"
         className="
           hidden md:flex items-center gap-2 px-4 py-2 
           bg-[#022E44] dark:bg-[#010618]
@@ -116,7 +116,7 @@ const FloatingActionButtons = () => {
         Get Free Consultancy
       </Link>
       <Link
-        href="/call"
+        href="/call#book-call"
         className="
           flex items-center gap-2 px-4 py-2
           bg-[#022E44] hover:bg-[#010618]
