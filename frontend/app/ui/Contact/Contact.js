@@ -8,7 +8,7 @@ import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import ContactForms from "./ContactForms";
 import Typewriter from "typewriter-effect";
-
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 export function Contact() {
   const features = [
     {
@@ -80,6 +80,11 @@ export function Contact() {
       
       {/* Contact Forms Component */}
       <ContactForms />
+
+      <div className="h-[40rem]items-center justify-center">
+            <TextHoverEffect text="COHORT" />
+            <TextHoverEffect text="LAB" />
+          </div>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { Project2 } from "./Project/Project2";
 import { Project3 } from "./Project/Project3";
 import { Project4 } from "./Project/Project4";
 import { Project5 } from "./Project/Project5";
-
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 export function Product() {
   return (
     <div>
@@ -16,6 +16,11 @@ export function Product() {
       <Project3 />
       <Project4 />
       <Project5 />
+
+      <div className="h-[40rem]items-center justify-center">
+      <TextHoverEffect text="COHORT" />
+      <TextHoverEffect text="LAB" />
+    </div>
     </div>
   );
 }

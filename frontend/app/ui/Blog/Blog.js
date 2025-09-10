@@ -6,6 +6,7 @@ import { Meteors } from "@/components/ui/meteors";
 import blogData from "./blog.json";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 export function Blog() {
   // State for managing modals
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -508,6 +509,11 @@ export function Blog() {
           </div>
         </div>
       )}
+
+      <div className="h-[40rem]items-center justify-center">
+        <TextHoverEffect text="COHORT" />
+        <TextHoverEffect text="LAB" />
+      </div>
     </div>
   );
 }

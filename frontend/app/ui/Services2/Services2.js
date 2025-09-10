@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
-
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 export function Services2() {
   return (
     <div className="space-y-16 px-4 max-w-7xl mx-auto">
@@ -194,6 +194,10 @@ export function Services2() {
           />
         </ul>
       </section>
+      <div className="h-[40rem]items-center justify-center">
+      <TextHoverEffect text="COHORT" />
+      <TextHoverEffect text="LAB" />
+    </div>
     </div>
   );
 }
