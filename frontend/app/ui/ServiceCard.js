@@ -53,7 +53,7 @@ export function ServiceCard() {
               <Icon className="absolute h-6 w-6 -bottom-3 -left-3 textPurple-400 dark:text-purple-300" />
               <Icon className="absolute h-6 w-6 -top-3 -right-3 text-blue-400 dark:text-blue-300" />
               <Icon className="absolute h-6 w-6 -bottom-3 -right-3 textPurple-400 dark:text-purple-300" />
-              <EvervaultCard text="Custom Web Apps" />
+              <EvervaultCard text="AI Integration and Automation with Custom Web-Apps" />
               <h2 className="dark:text-white text-black mt-4 text-base font-semibold">Scalable dashboards, portals, and SaaS applications built to solve your business needs.</h2>
             </div>
             <div className="group m-0 border border-gray-200 dark:border-gray-700 flex flex-col items-start max-w-sm p-6 relative h-[28rem] rounded-2xl shadow-lg bg-white/80 dark:bg-gray-800/80 transition-transform duration-200 hover:scale-105 hover:shadow-2xl">

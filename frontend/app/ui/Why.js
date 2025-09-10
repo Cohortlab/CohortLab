@@ -16,8 +16,8 @@ const Why = () => {
       bgColor: "bg-gray-700"
     },
     {
-      title: "AI-Driven Solutions",
-      description: "Integrating AI technologies into our products and services, enhancing functionality and delivering innovative solutions that meet modern technological demands.",
+      title: "AI-Driven Solutions and Automations",
+      description: "Integrating AI technologie and automations into our products and services, enhancing functionality and delivering innovative solutions that meet modern technological demands.",
       icon: "⏰",
       bgColor: "bg-black"
     },

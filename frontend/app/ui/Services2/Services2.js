@@ -47,10 +47,11 @@ export function Services2() {
             title="UI/UX Design"
             description="Clean, user-focused designs that enhance usability and keep visitors engaged."
           />
+          
           <GridItem
             area="md:[grid-area:2/5/3/9]"
             icon={<Settings className="h-5 w-5 text-black dark:text-neutral-400" />}
-            title="Custom Web Apps"
+            title="AI Integration and Automation with Custom Web-Apps"
             description="Scalable dashboards, portals, and SaaS applications built to solve your business needs."
           />
           <GridItem
@@ -146,7 +147,7 @@ export function Services2() {
           <GridItem
             area="md:[grid-area:1/1/2/7]"
             icon={<Cpu className="h-5 w-5 text-black dark:text-neutral-400" />}
-            title="AI Integrations"
+            title="AI Integrations and Automations"
             description="Smart chatbots, automation, and AI assistants to improve efficiency and user experience."
           />
           <GridItem

@@ -58,7 +58,7 @@ export default function Footer() {
               <li>CMS Development</li>
               <li>Conversion Rate Optimization (CRO)</li>
               <li>Brand Identity Design</li>
-              <li>AI Integrations</li>
+              <li>AI Integrations and Automations</li>
               <li>Mobile App Development</li>
               <li>24/7 Technical Support and more...</li>
             </ul>
