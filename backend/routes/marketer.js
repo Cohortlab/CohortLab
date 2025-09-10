@@ -80,7 +80,25 @@ const optionalUpload = (req, res, next) => {
 };
 
 // POST /api/marketer - Create new marketer application
-router.post('/', optionalUpload, async (req, res) => {
+router.post('/', (req, res, next) => {
+  // Check if this is multipart form data (file upload)
+  if (req.headers['content-type']?.includes('multipart/form-data')) {
+    // Use multer for file upload
+    upload.single('resume')(req, res, (err) => {
+      if (err) {
+        console.error('Multer error:', err);
+        return res.status(400).json({
+          status: 'error',
+          message: err.message || 'File upload error'
+        });
+      }
+      next();
+    });
+  } else {
+    // Skip multer for JSON requests
+    next();
+  }
+}, async (req, res) => {
   try {
     const {
       name,

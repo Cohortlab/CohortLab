@@ -57,15 +57,17 @@ const upload = multer({
 
 // Custom middleware to handle optional file upload
 const optionalUpload = (req, res, next) => {
-  // If resumeGoogleDriveUrl is provided, skip file upload processing
-  if (req.body.resumeGoogleDriveUrl?.trim() && !req.file) {
+  // If resumeGoogleDriveUrl is provided and no file is being uploaded, skip multer
+  if (req.body.resumeGoogleDriveUrl?.trim() && !req.files && !req.file) {
+    console.log('Skipping file upload, using Google Drive URL');
     return next();
   }
   
+  // Try to process with multer
   upload.single('resume')(req, res, (err) => {
     if (err) {
       console.error('Multer error:', err);
-      // If there's an error but Google Drive URL is provided, continue
+      // If there's an error but Google Drive URL is provided, continue anyway
       if (req.body.resumeGoogleDriveUrl?.trim()) {
         console.log('File upload failed but Google Drive URL provided, continuing...');
         return next();
@@ -80,7 +82,25 @@ const optionalUpload = (req, res, next) => {
 };
 
 // POST /api/developer - Create new developer application
-router.post('/', optionalUpload, async (req, res) => {
+router.post('/', (req, res, next) => {
+  // Check if this is multipart form data (file upload)
+  if (req.headers['content-type']?.includes('multipart/form-data')) {
+    // Use multer for file upload
+    upload.single('resume')(req, res, (err) => {
+      if (err) {
+        console.error('Multer error:', err);
+        return res.status(400).json({
+          status: 'error',
+          message: err.message || 'File upload error'
+        });
+      }
+      next();
+    });
+  } else {
+    // Skip multer for JSON requests
+    next();
+  }
+}, async (req, res) => {
   try {
     const {
       name,
@@ -93,6 +113,12 @@ router.post('/', optionalUpload, async (req, res) => {
       portfolioWebsite,
       resumeGoogleDriveUrl
     } = req.body;
+
+    console.log('Developer application request:', {
+      body: req.body,
+      file: req.file ? 'File present' : 'No file',
+      hasGoogleDriveUrl: !!resumeGoogleDriveUrl
+    });
 
     // Check if developer already exists
     const existingDeveloper = await Developer.findOne({ email });
