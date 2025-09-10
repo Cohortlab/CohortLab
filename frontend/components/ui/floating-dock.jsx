@@ -73,7 +73,7 @@ const FloatingDockDesktop = ({
   let mouseX = useMotionValue(Infinity);
   return (
     <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageY)}
+      onMouseMove={(e) => mouseX.set(e.clientY)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
         "mx-0 hidden w-16 flex-col items-center gap-4 rounded-2xl bg-gray-50 py-4 pl-3 md:flex dark:bg-neutral-900",

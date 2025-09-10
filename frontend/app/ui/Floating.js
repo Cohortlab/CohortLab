@@ -43,7 +43,7 @@ export function Floating() {
           height={20}
           alt="Home" />
       ),
-      href: "#",
+      href: "/",
     },
     {
       title: "Mail Us",
