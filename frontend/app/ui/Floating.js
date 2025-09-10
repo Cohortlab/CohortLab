@@ -2,39 +2,40 @@ import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
-  IconBrandX,
+  IconBrandX,IconMail,
   IconExchange,
-  IconHome,
-  IconNewSection,
+  IconHome,IconStar,
+  IconNewSection,IconPhoneDone,
   IconTerminal2,
 } from "@tabler/icons-react";
+import { SiLinkedin } from "react-icons/si";
 
 export function Floating() {
   const links = [
     {
-      title: "Home",
+      title: "Get Free Consultancy",
       icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconStar stroke={2} className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/call#consultancy",
     },
 
     {
-      title: "Products",
+      title: "Book a Call",
       icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconPhoneDone stroke={2} className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/call#book-call",
     },
     {
-      title: "Components",
+      title: "Services",
       icon: (
         <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/services",
     },
     {
-      title: "Aceternity UI",
+      title: "Home",
       icon: (
         <img
           src="/5.png"
@@ -45,26 +46,27 @@ export function Floating() {
       href: "#",
     },
     {
-      title: "Changelog",
+      title: "Mail Us",
       icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconMail stroke={2} className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "mailto:101rishidsr@gmail.com",
     },
+    
 
     {
-      title: "Twitter",
+      title: "LinkedIn",
       icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <SiLinkedin  className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.linkedin.com/company/cohortlab/",
     },
     {
-      title: "GitHub",
+      title: "Want to Contribute or Report Issues?",
       icon: (
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://github.com/Cohortlab/CohortLab",
     },
   ];
   return (
