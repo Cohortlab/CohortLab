@@ -1,13 +1,14 @@
 "use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaClipboardList, FaPalette, FaBolt, FaFlask, FaCloud, FaChartBar, FaRocket } from 'react-icons/fa';
 
 const Agile = () => {
   const steps = [
     {
       id: 1,
       title: "Plan",
-      icon: "📋",
+      icon: <FaClipboardList className="w-6 h-6" />,
       description: "Define project requirements and create a roadmap",
       angle: 0,
       color: "from-blue-500 to-blue-700"
@@ -15,7 +16,7 @@ const Agile = () => {
     {
       id: 2,
       title: "Design",
-      icon: "🎨",
+      icon: <FaPalette className="w-6 h-6" />,
       description: "Create user-centric designs and wireframes",
       angle: 51.4,
       color: "from-purple-500 to-purple-700"
@@ -23,7 +24,7 @@ const Agile = () => {
     {
       id: 3,
       title: "Develop",
-      icon: "⚡",
+      icon: <FaBolt className="w-6 h-6" />,
       description: "Build features with cutting-edge technology",
       angle: 102.8,
       color: "from-green-500 to-green-700"
@@ -31,7 +32,7 @@ const Agile = () => {
     {
       id: 4,
       title: "Testing",
-      icon: "🧪",
+      icon: <FaFlask className="w-6 h-6" />,
       description: "Quality assurance and bug testing",
       angle: 154.2,
       color: "from-yellow-500 to-yellow-700"
@@ -39,7 +40,7 @@ const Agile = () => {
     {
       id: 5,
       title: "Deploy",
-      icon: "☁️",
+      icon: <FaCloud className="w-6 h-6" />,
       description: "Push updates to production environment",
       angle: 205.6,
       color: "from-red-500 to-red-700"
@@ -47,7 +48,7 @@ const Agile = () => {
     {
       id: 6,
       title: "Review",
-      icon: "📊",
+      icon: <FaChartBar className="w-6 h-6" />,
       description: "Evaluate progress and gather feedback",
       angle: 257,
       color: "from-indigo-500 to-indigo-700"
@@ -55,7 +56,7 @@ const Agile = () => {
     {
       id: 7,
       title: "Launch",
-      icon: "🚀",
+      icon: <FaRocket className="w-6 h-6" />,
       description: "Deploy and go live with your product",
       angle: 308.4,
       color: "from-pink-500 to-pink-700"
@@ -63,7 +64,7 @@ const Agile = () => {
   ];
 
   const [dragConstraints, setDragConstraints] = useState({});
-
+  const radius = 300;
   return (
     <section className="relative w-full py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
       {/* Animated Glass Background */}
@@ -181,7 +182,7 @@ const Agile = () => {
             <motion.circle 
               cx="300" 
               cy="300" 
-              r="200" 
+              r="240" 
               fill="none" 
               stroke="url(#gradient)" 
               strokeWidth="3" 
@@ -283,7 +284,7 @@ const DraggableStepCard = ({ step }) => {
   return (
     <div className="group relative cursor-grab active:cursor-grabbing">
       <motion.div 
-        className={`bg-gradient-to-br ${step.color} backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4 w-28 h-28 flex flex-col items-center justify-center`}
+        className={`ml-67 bg-gradient-to-br ${step.color} backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4 w-28 h-28 flex flex-col items-center justify-center`}
         whileHover={{ 
           boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)" 
         }}
@@ -316,7 +317,7 @@ const DraggableStepCard = ({ step }) => {
         className="absolute -top-2 -right-2 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
         whileHover={{ scale: 1.2 }}
       >
-        <span className="text-white text-xs">⚡</span>
+        <FaBolt className="text-white w-4 h-4" />
       </motion.div>
     </div>
   );
