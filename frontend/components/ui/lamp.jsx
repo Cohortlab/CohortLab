@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -25,6 +25,18 @@ export const LampContainer = ({
   children,
   className
 }) => {
+  const [showText, setShowText] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setShowText(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div
       className={cn(
@@ -98,6 +110,13 @@ export const LampContainer = ({
       <div className="relative z-50 flex -translate-y-80 flex-col items-center px-5">
         {children}
       </div>
+      <motion.div
+        animate={{ opacity: showText ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
+        className="absolute bottom-4 right-4 text-sm text-slate-400 z-50"
+      >
+        Please scroll down to know more...
+      </motion.div>
     </div>
   );
 };

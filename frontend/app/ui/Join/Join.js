@@ -4,7 +4,7 @@ import CustomAlert from "@/components/ui/CustomAlert";
 import { FileUpload } from "@/components/ui/file-upload";
 import { Meteors } from "@/components/ui/meteors";
 import { motion } from "motion/react";
-
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 // Custom validation functions
 const validateEmail = (email) => {
   if (!email || !email.trim()) {
@@ -548,6 +548,10 @@ export default function Join() {
           </motion.form>
         </div>
       </div>
+      <div className="h-[40rem]items-center justify-center">
+      <TextHoverEffect text="COHORT" />
+      <TextHoverEffect text="LAB" />
+    </div>
     </div>
   );
 }

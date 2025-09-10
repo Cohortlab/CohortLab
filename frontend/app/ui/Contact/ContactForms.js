@@ -128,6 +128,9 @@ export default function ContactForms() {
       preferredDateTime: "",
       topicDiscussion: "",
       additionalNotes: ""
+    },
+    directContact: {
+      // No form fields needed - just display contact info
     }
   });
   const [errors, setErrors] = useState({});
@@ -140,6 +143,8 @@ export default function ContactForms() {
       setActiveTab('bookCall');
     } else if (hash === '#consultancy') {
       setActiveTab('consultancy');
+    } else if (hash === '#direct-contact') {
+      setActiveTab('directContact');
     }
   }, []);
 
@@ -304,7 +309,8 @@ export default function ContactForms() {
           <div className="flex flex-wrap justify-center mb-8 border-b border-gray-700 gap-2">
             {[
               { key: 'consultancy', label: 'Get Free Consultancy', icon: '' },
-              { key: 'bookCall', label: 'Book a Call', icon: '' }
+              { key: 'bookCall', label: 'Book a Call', icon: '' },
+              { key: 'directContact', label: 'Direct Contact', icon: '' }
             ].map((tab) => {
               const isActive = activeTab === tab.key;
               return (
@@ -313,7 +319,12 @@ export default function ContactForms() {
                   onClick={() => {
                     setActiveTab(tab.key);
                     // Update URL hash without page reload
-                    window.history.pushState(null, null, `#${tab.key === 'consultancy' ? 'consultancy' : 'book-call'}`);
+                    const hashMap = {
+                      'consultancy': 'consultancy',
+                      'bookCall': 'book-call',
+                      'directContact': 'direct-contact'
+                    };
+                    window.history.pushState(null, null, `#${hashMap[tab.key]}`);
                   }}
                   initial={false}
                   animate={isActive ? { scale: 1.08 } : { scale: 1 }}
@@ -357,7 +368,7 @@ export default function ContactForms() {
             onSubmit={handleSubmit}
             className="max-w-4xl mx-auto"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className={`grid ${activeTab === 'directContact' ? 'grid-cols-1 justify-center' : 'grid-cols-1 md:grid-cols-2'} gap-6`}>
               {/* Free Consultancy Form */}
               {activeTab === 'consultancy' && (
                 <>
@@ -483,27 +494,177 @@ export default function ContactForms() {
                   </div>
                 </>
               )}
+
+              {/* Direct Contact Section */}
+              {activeTab === 'directContact' && (
+                <div className="relative min-h-[400px] flex justify-center items-center">
+                  {/* Animated Orbs/Lines Background for right section */}
+                  <div className="hidden md:block absolute right-0 top-0 h-full w-1/2 z-0 pointer-events-none">
+                    {/* Floating Orbs */}
+                    <div className="absolute left-1/4 top-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#010618] via-gray-400/40 to-white/30 blur-2xl animate-pulse-slow" style={{animationDelay: '0s'}}></div>
+                    <div className="absolute right-8 top-32 w-24 h-24 rounded-full bg-gradient-to-br from-teal-900/80 via-white/20 to-gray-300/30 blur-2xl animate-pulse-slower" style={{animationDelay: '1.5s'}}></div>
+                    <div className="absolute left-10 bottom-10 w-10 h-10 rounded-full bg-gradient-to-br from-gray-200/60 via-white/10 to-[#010618]/60 blur-xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+                    {/* Floating Lines */}
+                    <div className="absolute right-0 top-1/4 w-32 h-1 bg-gradient-to-r from-transparent via-silver to-white/60 opacity-60 rotate-12 animate-move-x"></div>
+                    <div className="absolute left-1/3 bottom-1/4 w-24 h-1 bg-gradient-to-r from-teal-900/60 via-white/40 to-transparent opacity-40 -rotate-6 animate-move-x-slow"></div>
+                  </div>
+                  {/* Subtle Animated Lines Background */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
+                    {/* Horizontal Lines */}
+                    <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent animate-pulse"></div>
+                    <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+                    
+                    {/* Vertical Lines */}
+                    <div className="absolute left-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-blue-400/30 to-transparent animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                    <div className="absolute left-2/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent animate-pulse" style={{animationDelay: '1.5s'}}></div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10 text-center py-8 w-full max-w-xl mx-auto">
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      Direct Contact Information
+                    </h3>
+                    <p className="text-gray-400 mb-8">
+                      Get in touch directly for immediate assistance
+                    </p>
+                    
+                    <div className="max-w-2xl mx-auto space-y-6">
+                      {/* Phone Numbers */}
+                      <div className="bg-gradient-to-r from-[#010618] to-gray-900/50 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
+                        <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center gap-2">
+                          <span className="text-blue-400"></span>
+                          WhatsApp & Call
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <a 
+                            href="https://wa.me/+918580149535"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center justify-center gap-2 py-3 px-4 bg-gray-800/50 hover:bg-gradient-to-r hover:from-green-600/20 hover:to-green-700/20 border border-gray-600/50 hover:border-green-500/50 text-gray-300 hover:text-white rounded-lg transition-all duration-300"
+                          >
+                            <span className="text-green-400 group-hover:scale-110 transition-transform"></span>
+                            <div className="text-sm">
+                              <div className="font-medium">+91 8580149535</div>
+                              <div className="text-xs text-gray-500">Rishi</div>
+                            </div>
+                          </a>
+                          <a 
+                            href="https://wa.me/+919472709259"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center justify-center gap-2 py-3 px-4 bg-gray-800/50 hover:bg-gradient-to-r hover:from-green-600/20 hover:to-green-700/20 border border-gray-600/50 hover:border-green-500/50 text-gray-300 hover:text-white rounded-lg transition-all duration-300"
+                          >
+                            <span className="text-green-400 group-hover:scale-110 transition-transform"></span>
+                            <div className="text-sm">
+                              <div className="font-medium">+91 9472709259</div>
+                              <div className="text-xs text-gray-500">Aditya</div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* Email */}
+                      <div className="bg-gradient-to-r from-[#010618] to-gray-900/50 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
+                        <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center gap-2">
+                          <span className="text-blue-400"></span>
+                          Email
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <a 
+                            href="mailto:101rishidsr@gmail.com"
+                            className="group flex items-center justify-center gap-2 py-3 px-4 bg-gray-800/50 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-blue-700/20 border border-gray-600/50 hover:border-blue-500/50 text-gray-300 hover:text-white rounded-lg transition-all duration-300"
+                          >
+                            <span className="text-blue-400 group-hover:scale-110 transition-transform"></span>
+                            <div className="text-sm">
+                              <div className="font-medium">101rishidsr@gmail.com</div>
+                              <div className="text-xs text-gray-500">Rishi</div>
+                            </div>
+                          </a>
+                          <a 
+                            href="mailto:103ranjanadityakishu@gmail.com"
+                            className="group flex items-center justify-center gap-2 py-3 px-4 bg-gray-800/50 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-blue-700/20 border border-gray-600/50 hover:border-blue-500/50 text-gray-300 hover:text-white rounded-lg transition-all duration-300"
+                          >
+                            <span className="text-blue-400 group-hover:scale-110 transition-transform"></span>
+                            <div className="text-sm">
+                              <div className="font-medium text-xs">103ranjanadityakishu@gmail.com</div>
+                              <div className="text-xs text-gray-500">Aditya</div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* LinkedIn */}
+                      <div className="bg-gradient-to-r from-[#010618] to-gray-900/50 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
+                        <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center gap-2">
+                          <span className="text-blue-400"></span>
+                          LinkedIn
+                        </h4>
+                        <div className="flex justify-center">
+                          <a 
+                            href="https://www.linkedin.com/in/rishi-rih/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-2 py-3 px-6 bg-gray-800/50 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-cyan-600/20 border border-gray-600/50 hover:border-blue-500/50 text-gray-300 hover:text-white rounded-lg transition-all duration-300"
+                          >
+                            <span className="text-blue-400 group-hover:scale-110 transition-transform"></span>
+                            <span className="font-medium">Connect with Rishi</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Footer Info */}
+                    <div className="mt-8 pt-6 border-t border-gray-700/30">
+                      <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-500">
+                        <div className="flex items-center gap-2">
+                          <span className="text-green-400"></span>
+                          Available 24x7
+                        </div>
+                        <div className="hidden md:block">|</div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-blue-400"></span>
+                          Response within 2-4 hours
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Submit Button */}
-            <div className="mt-8 text-center">
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-8 py-4 bg-gradient-to-r from-blue-600 to-[#010618] text-white font-semibold rounded-lg shadow-lg hover:from-blue-700 hover:to-[#010618] transition-all duration-200 ${
-                  isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
-                }`}
-              >
-                {isSubmitting ? 'Submitting...' : 
-                  activeTab === 'consultancy' ? 'Get My Free Consultancy' : 'Book My Call'
-                }
-              </motion.button>
-            </div>
+            {/* Submit Button - Only show for form tabs */}
+            {activeTab !== 'directContact' && (
+              <div className="mt-8 text-center">
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`px-8 py-4 bg-gradient-to-r from-blue-600 to-[#010618] text-white font-semibold rounded-lg shadow-lg hover:from-blue-700 hover:to-[#010618] transition-all duration-200 ${
+                    isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
+                  }`}
+                >
+                  {isSubmitting ? 'Submitting...' : 
+                    activeTab === 'consultancy' ? 'Get My Free Consultancy' : 'Book My Call'
+                  }
+                </motion.button>
+              </div>
+            )}
           </motion.form>
         </div>
       </div>
+      {/* Add keyframes for custom animations */}
+      <style jsx global>{`
+@keyframes pulse-slow { 0%,100%{opacity:0.7;} 50%{opacity:1;} }
+@keyframes pulse-slower { 0%,100%{opacity:0.5;} 50%{opacity:0.9;} }
+@keyframes move-x { 0%{transform:translateX(0);} 50%{transform:translateX(20px);} 100%{transform:translateX(0);} }
+@keyframes move-x-slow { 0%{transform:translateX(0);} 50%{transform:translateX(-15px);} 100%{transform:translateX(0);} }
+.animate-pulse-slow { animation: pulse-slow 3.5s ease-in-out infinite; }
+.animate-pulse-slower { animation: pulse-slower 6s ease-in-out infinite; }
+.animate-move-x { animation: move-x 5s ease-in-out infinite; }
+.animate-move-x-slow { animation: move-x-slow 8s ease-in-out infinite; }
+`}</style>
     </div>
   );
 }
