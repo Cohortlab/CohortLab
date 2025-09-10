@@ -296,7 +296,7 @@ export default function ContactForms() {
               Get In Touch With Us
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Ready to take your business to the next level? Choose how you'd like to connect with our experts.
+              Ready to take your business to the next level? Choose how you&apos;d like to connect with our experts.
             </p>
           </div>
 
@@ -448,7 +448,7 @@ export default function ContactForms() {
                     errors={errors} 
                   />
                   <InputField 
-                    label="Preferred Date & Time" 
+                    label="Preferred Date &amp; Time" 
                     type="datetime-local" 
                     field="preferredDateTime" 
                     placeholder="" 

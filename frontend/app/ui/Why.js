@@ -29,7 +29,7 @@ const Why = () => {
     },
     {
       title: "Continuous Upskilling",
-      description: "We conduct weekly upskilling sessions to continuously improve our team's productivity and growth, ensuring that our skills and knowledge stay current and relevant.",
+      description: "We conduct weekly upskilling sessions to continuously improve our team&apos;s productivity and growth, ensuring that our skills and knowledge stay current and relevant.",
       icon: "🎯",
       bgColor: "bg-gray-500"
     },

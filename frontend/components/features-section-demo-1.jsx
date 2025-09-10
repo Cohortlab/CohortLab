@@ -60,7 +60,7 @@ const grid = [
   {
     title: "Customizable Templates",
     description:
-      "Create stunning social media posts with our customizable templates, designed to fit your brand's unique style and voice.",
+      "Create stunning social media posts with our customizable templates, designed to fit your brand&apos;s unique style and voice.",
   },
   {
     title: "Collaboration Tools",

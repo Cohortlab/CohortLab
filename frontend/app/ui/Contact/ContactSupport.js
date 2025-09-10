@@ -18,7 +18,7 @@ export function ContactSupport() {
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
        
       </motion.h1>
-      <div className="mt-20">
+      <div className="mt-70">
         <Contact />
       </div>
     </LampContainer>
