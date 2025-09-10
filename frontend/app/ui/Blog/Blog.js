@@ -142,7 +142,7 @@ export function Blog() {
       <div className="max-w-7xl mx-auto px-4 pb-16">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Insights & Industry Trends
+            Insights &amp; Industry Trends
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Discover the latest in web development, digital marketing, AI integration, and business growth strategies from industry experts
@@ -492,7 +492,7 @@ export function Blog() {
                     {apiMessage}
                   </p>
                   <p className="text-green-200/80 text-sm mb-6">
-                    You'll receive expert insights on web development, digital marketing, and business growth strategies.
+                    You&#39;ll receive expert insights on web development, digital marketing, and business growth strategies.
                   </p>
 
                   <button
