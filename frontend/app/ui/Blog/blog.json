@@ -1,0 +1,155 @@
+[
+  {
+    "id": 1,
+    "title": "Why Every Business Needs a Website in 2025",
+    "slug": "why-every-business-needs-a-website-2025",
+    "description": "In the modern digital era, having a website is no longer optional. Businesses that rely solely on traditional methods of marketing and communication risk falling behind competitors who embrace online visibility. A website acts as the face of your company online, providing information about your products and services, building trust with potential customers, and serving as a 24/7 platform for engagement. This blog explores the importance of website presence, how it drives leads, improves credibility, and the long-term ROI businesses gain by investing in a professional website.",
+    "name": "Aditya Ranjan",
+    "position": "Co-Founder"
+  },
+  {
+    "id": 2,
+    "title": "How Website Localization Can Help You Go Global",
+    "slug": "website-localization-go-global",
+    "description": "Expanding your business internationally requires more than just translating content. Website localization involves adapting your site to different languages, cultural contexts, and regional preferences. This blog discusses the strategies for effective localization, the benefits it brings in terms of global reach, user engagement, and customer trust, and how businesses can leverage modern web technologies to seamlessly integrate multilingual capabilities into their platforms.",
+    "name": "Rishi Ranjan",
+    "position": "Co-Founder"
+  },
+  {
+    "id": 3,
+    "title": "Top 7 Web Development Trends in 2025",
+    "slug": "web-development-trends-2025",
+    "description": "The web development landscape is constantly evolving, with new frameworks, technologies, and design philosophies emerging every year. This blog covers the top trends that businesses should watch in 2025, including the adoption of React, Next.js, AI-powered web features, progressive web apps (PWAs), serverless architectures, and enhanced website performance strategies. It explains how staying updated with these trends can give companies a competitive edge in delivering fast, modern, and scalable web solutions.",
+    "name": "Dev Goyal",
+    "position": "Marketing Team"
+  },
+  {
+    "id": 4,
+    "title": "The Importance of SEO for Business Websites",
+    "slug": "importance-of-seo-for-business",
+    "description": "Search Engine Optimization (SEO) is a critical component of any business’s online strategy. This blog explains why SEO is essential for driving organic traffic, improving brand visibility, and increasing conversions. It covers both on-page and off-page SEO techniques, keyword research, content optimization, link building, and technical SEO elements such as site speed and mobile-friendliness. Businesses that implement a strong SEO strategy can gain long-term visibility, reduce marketing costs, and establish authority in their industry.",
+    "name": "Karan Gill",
+    "position": "Founder - SwapSo"
+  },
+  {
+    "id": 5,
+    "title": "Website Maintenance: Why Your Business Can’t Ignore It",
+    "slug": "website-maintenance-importance",
+    "description": "Website maintenance is often overlooked, but it is essential for keeping your site secure, fast, and fully functional. This blog details the importance of regular updates, backups, security checks, content refreshes, and performance monitoring. Neglecting maintenance can lead to vulnerabilities, slower load times, and a poor user experience. The blog provides actionable tips on scheduling maintenance, monitoring website health, and leveraging tools that help businesses maintain consistent online performance.",
+    "name": "Mahek Kalra",
+    "position": "Customer"
+  },
+  {
+    "id": 6,
+    "title": "UI/UX Best Practices for 2025",
+    "slug": "ui-ux-best-practices-2025",
+    "description": "User Interface (UI) and User Experience (UX) are critical to a website’s success. This blog explores the best practices for designing intuitive, engaging, and accessible interfaces in 2025. Topics include responsive design, micro-interactions, accessibility standards, usability testing, and the role of AI in enhancing user experience. Businesses that focus on UI/UX can increase engagement, improve conversions, and ensure customer satisfaction across all devices.",
+    "name": "Rishi Ranjan",
+    "position": "Co-Founder"
+  },
+  {
+    "id": 7,
+    "title": "E-commerce Development Strategies for Modern Businesses",
+    "slug": "ecommerce-development-strategies",
+    "description": "E-commerce has become the backbone of modern retail. This blog provides insights into building effective online stores using platforms like Shopify, WooCommerce, and Magento. It covers design considerations, payment integration, inventory management, customer experience, and performance optimization. Additionally, it explains how businesses can leverage analytics and marketing automation to increase sales and retain customers in a competitive online marketplace.",
+    "name": "Ankit Kr Gupta",
+    "position": "Customer"
+  },
+  {
+    "id": 8,
+    "title": "The Role of AI in Modern Web Development",
+    "slug": "ai-in-modern-web-development",
+    "description": "Artificial Intelligence (AI) is transforming web development by enabling smarter features such as chatbots, recommendation engines, and automated design suggestions. This blog explains how AI can improve website performance, personalization, and customer engagement. It also discusses AI-powered testing, automation, and predictive analytics that help businesses build more efficient, intelligent, and scalable web solutions.",
+    "name": "Hritik Gupta",
+    "position": "Founder, Customer"
+  },
+  {
+    "id": 9,
+    "title": "Why Cloud Hosting is Essential for Growing Businesses",
+    "slug": "cloud-hosting-essential-business",
+    "description": "Cloud hosting offers scalability, reliability, and cost-efficiency for businesses of all sizes. This blog covers the advantages of cloud hosting over traditional servers, including automatic backups, high availability, improved performance, and security. It also explores different cloud platforms and best practices for implementing cloud infrastructure to ensure that websites remain fast, secure, and resilient under increasing traffic.",
+    "name": "Vivek",
+    "position": "Development Team"
+  },
+  {
+    "id": 10,
+    "title": "Conversion Rate Optimization Techniques for 2025",
+    "slug": "conversion-rate-optimization-2025",
+    "description": "Conversion Rate Optimization (CRO) is the practice of increasing the percentage of website visitors who take desired actions. This blog explains effective CRO strategies such as A/B testing, user behavior analysis, landing page optimization, and persuasive design elements. By implementing CRO best practices, businesses can maximize ROI, increase sales, and improve overall user experience on their websites.",
+    "name": "EdXtra",
+    "position": "Customer"
+  },
+  {
+    "id": 11,
+    "title": "Content Marketing Strategies for Digital Growth",
+    "slug": "content-marketing-digital-growth",
+    "description": "Content marketing is key to driving engagement and building brand authority. This blog covers strategies for creating high-quality, SEO-friendly content, leveraging blogs, videos, infographics, and social media. It also explains how businesses can measure content performance, nurture leads, and convert audiences into loyal customers through targeted messaging and storytelling.",
+    "name": "Nitish Kr Singh",
+    "position": "Customer"
+  },
+  {
+    "id": 12,
+    "title": "Mobile App Development vs Web Apps: What’s Right for Your Business?",
+    "slug": "mobile-vs-web-apps",
+    "description": "Choosing between mobile apps and web apps is crucial for modern businesses. This blog explains the pros and cons of each, including development cost, performance, scalability, and user reach. It helps business owners make informed decisions about which platform suits their target audience, budget, and business goals while exploring cross-platform solutions like React Native and progressive web apps.",
+    "name": "Aditya Kr Jha",
+    "position": "Customer"
+  },
+  {
+    "id": 13,
+    "title": "Social Media Management Tips for Businesses",
+    "slug": "social-media-management-tips",
+    "description": "Social media is a powerful channel for brand awareness and customer engagement. This blog covers strategies for creating a consistent posting schedule, engaging content, audience targeting, and performance tracking. Businesses can learn how to leverage different platforms, monitor analytics, and implement social media campaigns that strengthen their online presence and drive leads.",
+    "name": "Shashwat Aggarwal",
+    "position": "Customer"
+  },
+  {
+    "id": 14,
+    "title": "Email Marketing Best Practices for Maximum ROI",
+    "slug": "email-marketing-best-practices",
+    "description": "Email marketing remains one of the most effective digital marketing strategies. This blog explains segmentation, personalization, automation, A/B testing, and campaign analytics to maximize open rates and conversions. Businesses can leverage these techniques to nurture leads, retain customers, and build long-term engagement through targeted messaging.",
+    "name": "Amit Sharma",
+    "position": "Customer"
+  },
+  {
+    "id": 15,
+    "title": "The Power of Brand Identity in Digital Success",
+    "slug": "brand-identity-digital-success",
+    "description": "A strong brand identity differentiates your business and builds trust with customers. This blog covers creating logos, color palettes, typography, messaging, and visual consistency across all channels. Businesses that focus on brand identity can enhance recognition, loyalty, and credibility in the digital marketplace.",
+    "name": "Namita Dandhaganhal",
+    "position": "Customer"
+  },
+  {
+    "id": 16,
+    "title": "Why Performance Optimization Matters for Websites",
+    "slug": "performance-optimization-websites",
+    "description": "Website performance directly affects user experience, SEO rankings, and conversion rates. This blog explores techniques to improve load speed, reduce latency, optimize images, implement caching, and leverage modern frameworks. Businesses that prioritize performance optimization see better engagement, retention, and overall online success.",
+    "name": "S.V. Ramarao",
+    "position": "Customer"
+  },
+  {
+    "id": 17,
+    "title": "AI-Powered Tools That Can Transform Your Business Website",
+    "slug": "ai-tools-transform-business-website",
+    "description": "Artificial Intelligence can revolutionize how businesses interact with customers online. This blog discusses AI chatbots, personalization engines, predictive analytics, and automated content generation tools that enhance user experience and business efficiency. Implementing AI-driven solutions can make websites smarter, faster, and more responsive to customer needs.",
+    "name": "CK Raghvan",
+    "position": "Customer"
+  },
+  {
+    "id": 18,
+    "title": "Cloud Security Essentials for Modern Websites",
+    "slug": "cloud-security-essentials-websites",
+    "description": "Cloud hosting is powerful, but it must be secured properly. This blog covers best practices for securing websites on cloud platforms, including encryption, firewalls, monitoring, backups, and compliance with data protection regulations. Businesses that adopt proper cloud security practices protect sensitive data and maintain customer trust.",
+    "name": "Aditya Ranjan",
+    "position": "Co-Founder"
+  },
+  
+  {
+    "id": 19,
+    "title": "The Future of Web Development: What Businesses Need to Know",
+    "slug": "future-of-web-development",
+    "description": "Web development is evolving faster than ever, driven by new frameworks, AI integration, and changing user expectations. This blog explores upcoming trends, including headless CMS, serverless architecture, and advanced UI/UX patterns. Businesses that adapt early to these changes can stay competitive, deliver better user experiences, and scale effectively in the digital age.",
+    "name": "Manya Kapoor",
+    "position": "Customer"
+  }
+]
