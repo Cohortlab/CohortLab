@@ -109,13 +109,13 @@ Test the API endpoints using tools like Postman or curl:
 
 ```bash
 # Health check
-curl http://localhost:5000/health
+curl https://cohortlab-backend.onrender.com/health
 
 # Subscribe to newsletter
-curl -X POST http://localhost:5000/api/newsletter/subscribe \
+curl -X POST https://cohortlab-backend.onrender.com/api/newsletter/subscribe \
   -H "Content-Type: application/json" \
   -d '{"name":"John Doe","email":"john@example.com"}'
 
 # Get stats
-curl http://localhost:5000/api/newsletter/stats
+curl https://cohortlab-backend.onrender.com/api/newsletter/stats
 ```
