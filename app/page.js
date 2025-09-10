@@ -10,6 +10,7 @@ import Why from "./ui/Why";
 import Agile from "./ui/Agile";
 
 import { ContactButton } from "./ui/ContactButton";
+import { Services2Support } from "./ui/Services2/Services2Support";
 export default function Home() {
   return (
     <div>
@@ -17,7 +18,8 @@ export default function Home() {
       <Hero2 />
       <Hero3 />
       <Carousel1 />
-      <ServiceCard />
+      {/* <ServiceCard /> */}
+      <Services2Support />
       <Agile />
       <div className="flex flex-col items-center justify-center mt-20 mb-10"><Testimonials />
         <Testimonial2 />

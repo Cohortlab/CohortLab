@@ -2,23 +2,25 @@
 import React from "react";
 import { motion } from "motion/react";
 import { LampContainer } from "@/components/ui/lamp";
-
-export function ServicesPage() {
+import { Services2Support } from "../ui/Services2/Services2Support";
+export default function ServicesPage() {
   return (
-    <LampContainer>
-      <motion.h1
-        initial={{ opacity: 0.5, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-        Build lamps <br /> the right way
-      </motion.h1>
-    </LampContainer>
+    <div className="">
+   <LampContainer>
+        <motion.h1
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+        >
+          Our <br /> Services
+        </motion.h1>
+
+      </LampContainer><Services2Support />
+    </div>
   );
 }
-
-export default ServicesPage;

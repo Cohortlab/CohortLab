@@ -1,109 +1,133 @@
 "use client";
-import {
-  Navbar,
-  NavBody,
-  NavItems,
-  MobileNav,
-  NavbarLogo,
-  NavbarButton,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+import React from "react";
+import { FloatingNav } from "@/components/ui/floating-navbar";
+import { 
+  IconHome, 
+  IconSettings, 
+  IconShoppingBag, 
+  IconNews, 
+  IconUser, 
+  IconUsers, 
+  IconPhone,
+  IconStar,
+  IconCalendar 
+} from "@tabler/icons-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export function NavbarMain() {
+  const pathname = usePathname();
+  
   const navItems = [
     {
       name: "Home",
       link: "/",
+      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
       name: "Services",
       link: "/services",
+      icon: <IconSettings className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "Products",
+      name: "Products", 
       link: "/products",
+      icon: <IconShoppingBag className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
       name: "Blog",
-      link: "/blog",
+      link: "/blog", 
+      icon: <IconNews className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
       name: "About",
       link: "/about",
+      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "Join Us",  
+      name: "Join Us",
       link: "/join",
+      icon: <IconUsers className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
       name: "Contact Us",
       link: "/call",
+      icon: <IconPhone className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
+    
   ];
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // Add active property to nav items
+  const navItemsWithActive = navItems.map(item => ({
+    ...item,
+    isActive: pathname === item.link
+  }));
 
   return (
-    <div className="relative w-full mt-5">
-      <Navbar className="bg-blur-md">
-        {/* Desktop Navigation */}
-        <NavBody>
-          <NavbarLogo />
-          {/* Desktop Nav Items with Link */}
-          <div className="flex gap-6">
-            {navItems.map((item, idx) => (
-              <Link key={item.name} href={item.link} className="text-neutral-800 dark:text-neutral-200 hover:text-blue-500 transition-colors font-medium">
-                {item.name}
-              </Link>
-            ))}
-          </div>
-          <div className="flex items-center gap-4 border-4 p-2 rounded-xl">
-            <NavbarButton variant="secondary">Get Free Consultancy</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
-          </div>
-        </NavBody>
-
-        {/* Mobile Navigation */}
-        <MobileNav>
-          <MobileNavHeader>
-            <NavbarLogo />
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
-          </MobileNavHeader>
-
-          <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
-            {navItems.map((item, idx) => (
-              <Link
-                key={`mobile-link-${idx}`}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300 block py-2 px-4 rounded hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
-                <span className="block">{item.name}</span>
-              </Link>
-            ))}
-            <div className="flex w-full flex-col gap-4 border">
-              
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full">
-                Book a call
-              </NavbarButton>
-            </div>
-          </MobileNavMenu>
-        </MobileNav>
-      </Navbar>
-      <Content />
+    <div className="relative w-full">
+      <style jsx>{`
+        @keyframes liquidPulse {
+          0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+          50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+        }
+        .liquid-hover {
+          position: relative;
+          overflow: hidden;
+        }
+        .liquid-hover::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle, rgba(20, 184, 166, 0.6) 0%, rgba(6, 182, 212, 0.4) 50%, transparent 70%);
+          border-radius: 50%;
+          filter: blur(8px);
+          transform: scale(0);
+          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: -1;
+        }
+        .liquid-hover:hover::before {
+          transform: scale(1.5);
+          animation: liquidPulse 1.5s infinite ease-in-out;
+        }
+      `}</style>
+      <FloatingNav navItems={navItemsWithActive} />
+      <FloatingActionButtons />
     </div>
   );
 }
 
-const Content = () => {
+const FloatingActionButtons = () => {
   return (
-    <div> </div>
+    <div className="fixed top-4 right-4 z-[5000] flex items-center gap-2">
+      <Link
+        href="/call"
+        className="
+          hidden md:flex items-center gap-2 px-4 py-2 
+          bg-[#022E44] dark:bg-[#010618]
+          border border-neutral-200 dark:border-neutral-700 
+          rounded-full text-sm font-medium
+          text-neutral-600 dark:text-neutral-300
+          hover:bg-[#010618] dark:hover:bg-[#010618]
+          transition-all duration-200
+          backdrop-blur-md liquid-hover
+        "
+      >
+        <IconStar className="h-4 w-4" />
+        Get Free Consultancy
+      </Link>
+      <Link
+        href="/call"
+        className="
+          flex items-center gap-2 px-4 py-2
+          bg-[#022E44] hover:bg-[#010618]
+          text-white rounded-full text-sm font-medium
+          transition-all duration-200
+          backdrop-blur-md liquid-hover
+        "
+      >
+        <IconCalendar className="h-4 w-4" />
+        Book a call
+      </Link>
+    </div>
   );
 };

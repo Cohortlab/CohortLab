@@ -2,9 +2,11 @@
 import React from "react";
 import { motion } from "motion/react";
 import { LampContainer } from "@/components/ui/lamp";
+import { Services2 } from "./Services2";
 
-export function CallPage() {
+export function Services2Support() {
   return (
+    <div>
     <LampContainer>
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
@@ -16,9 +18,7 @@ export function CallPage() {
         }}
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
         Build lamps <br /> the right way
-      </motion.h1>
-    </LampContainer>
+      </motion.h1><div className="mt-70"><Services2 /></div>
+    </LampContainer></div>
   );
 }
-
-export default CallPage;

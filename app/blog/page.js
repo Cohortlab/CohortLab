@@ -1,8 +1,24 @@
-export default function BlogPage() {
+"use client";
+import React from "react";
+import { motion } from "motion/react";
+import { LampContainer } from "@/components/ui/lamp";
+
+export function BlogPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-      <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">Blog</h1>
-      <p className="max-w-2xl text-center text-lg opacity-80">Insights, stories, and updates from the CohortLab team. Stay tuned for the latest in web, tech, and business growth.</p>
-    </main>
+    <LampContainer>
+      <motion.h1
+        initial={{ opacity: 0.5, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+        Build lamps <br /> the right way
+      </motion.h1>
+    </LampContainer>
   );
 }
+
+export default BlogPage;

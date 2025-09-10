@@ -2,8 +2,9 @@
 import React from "react";
 import { motion } from "motion/react";
 import { LampContainer } from "@/components/ui/lamp";
+import { Product } from "./Product";
 
-export function CallPage() {
+export function ProductSupport() {
   return (
     <LampContainer>
       <motion.h1
@@ -15,10 +16,8 @@ export function CallPage() {
           ease: "easeInOut",
         }}
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-        Build lamps <br /> the right way
-      </motion.h1>
+        Our <br /> Products
+      </motion.h1><div className="mt-30"><Product /></div>
     </LampContainer>
   );
 }
-
-export default CallPage;
