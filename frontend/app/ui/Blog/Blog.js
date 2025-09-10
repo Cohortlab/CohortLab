@@ -284,7 +284,7 @@ export function Blog() {
                 </p>
                 <button 
                   onClick={() => setShowNewsletterModal(true)}
-                  className="bg-gradient-to-r from-blue-600 to-teal-600 px-8 py-3 rounded-full text-white font-medium hover:scale-105 transition-transform duration-300 shadow-lg"
+                  className="bg-gradient-to-r from-blue-600 to-[#010618] px-8 py-3 rounded-full text-white font-medium hover:scale-105 transition-transform duration-300 shadow-lg"
                 >
                   Subscribe to Newsletter
                 </button>
@@ -445,7 +445,7 @@ export function Blog() {
                       className={`w-full px-6 py-3 rounded-lg text-white font-medium transition-all duration-300 ${
                         isSubmitting 
                           ? 'bg-gray-600 cursor-not-allowed' 
-                          : 'bg-gradient-to-r from-blue-600 to-teal-600 hover:scale-105'
+                          : 'bg-gradient-to-r from-blue-600 to-[#010618] hover:scale-105'
                       }`}
                     >
                       {isSubmitting ? (

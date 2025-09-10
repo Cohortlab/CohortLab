@@ -7,6 +7,9 @@ require('dotenv').config();
 
 // Import routes
 const newsletterRoutes = require('./routes/newsletter');
+const developerRoutes = require('./routes/developer');
+const marketerRoutes = require('./routes/marketer');
+const partnerRoutes = require('./routes/partner');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -74,6 +77,9 @@ app.get('/health', (req, res) => {
 
 // API Routes
 app.use('/api/newsletter', newsletterRoutes);
+app.use('/api/developer', developerRoutes);
+app.use('/api/marketer', marketerRoutes);
+app.use('/api/partner', partnerRoutes);
 
 // 404 handler
 app.use('*', (req, res) => {
