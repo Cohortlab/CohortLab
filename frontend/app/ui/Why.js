@@ -1,42 +1,43 @@
 "use client";
 import React from 'react';
 import { PointerHighlight } from '@/components/ui/pointer-highlight';
+import { FaCheck, FaSearch, FaRobot, FaLightbulb, FaBullseye, FaMicroscope } from 'react-icons/fa';
 const Why = () => {
   const features = [
     {
       title: "Diverse Industry Experience",
       description: "Successfully accomplished 70+ projects across 20+ industries, demonstrating our ability to handle diverse and complex requirements.",
-      icon: "✓",
-      bgColor: "bg-blue-700"
+  icon: <FaCheck className="h-6 w-6" />,
+      bgColor: "bg-gray-700"
     },
     {
       title: "Standard Method of Project Management",
       description: "We follow standard Agile methodology to ensure optimal project execution, allowing for flexibility and efficient management.",
-      icon: "🔍",
+  icon: <FaSearch className="h-6 w-6" />,
       bgColor: "bg-gray-700"
     },
     {
       title: "AI-Driven Solutions and Automations",
       description: "Integrating AI technologie and automations into our products and services, enhancing functionality and delivering innovative solutions that meet modern technological demands.",
-      icon: "⏰",
+  icon: <FaRobot className="h-6 w-6" />,
       bgColor: "bg-black"
     },
     {
       title: "Creative and Innovative Approach",
       description: "Our team combines creativity with innovation to provide unique solutions tailored to your project, ensuring that your product stands out in the market.",
-      icon: "✨",
+  icon: <FaLightbulb className="h-6 w-6" />,
       bgColor: "bg-gray-900"
     },
     {
       title: "Continuous Upskilling",
       description: "We conduct weekly upskilling sessions to continuously improve our team&apos;s productivity and growth, ensuring that our skills and knowledge stay current and relevant.",
-      icon: "🎯",
+  icon: <FaBullseye className="h-6 w-6" />,
       bgColor: "bg-gray-500"
     },
     {
       title: "Cutting-Edge R&D",
       description: "Our team conducts research and development to incorporate the latest technologies into your product, keeping you at the forefront of innovation.",
-      icon: "🔬",
+  icon: <FaMicroscope className="h-6 w-6 text-black" />,
       bgColor: "bg-white text-black"
     }
   ];
