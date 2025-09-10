@@ -76,7 +76,8 @@ export function Blog() {
     setIsSubmitting(true);
     
     try {
-  const response = await fetch('https://cohortlab-backend.onrender.com/api/newsletter/subscribe', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+  const response = await fetch(`${apiUrl}/newsletter/subscribe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

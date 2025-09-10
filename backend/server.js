@@ -26,8 +26,22 @@ const limiter = rateLimit({
 // Middleware
 app.use(helmet()); // Security headers
 app.use(limiter); // Apply rate limiting
+
+// Configure CORS for multiple origins
+const allowedOrigins = [
+  process.env.FRONTEND_URL || 'http://localhost:3000',
+  process.env.FRONTEND_URL_PROD || 'https://cohort-lab.vercel.app',
+  process.env.FRONTEND_URL_DEV || 'http://localhost:3000'
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
