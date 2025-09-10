@@ -13,7 +13,7 @@ export function ContactButton() {
           Want To Work Together?
         </h2>
         <p className="text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
-          Let's build something great together and make your vision a reality with our expertise and your business goals.
+          Let&apos;s build something great together and make your vision a reality with our expertise and your business goals.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
           <button
