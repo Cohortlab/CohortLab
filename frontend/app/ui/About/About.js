@@ -400,7 +400,7 @@ const globeConfig = {
   ];
 
 
-const words = `At CohortLab, we are more than just a digital agency — we are a team of innovators, creators, and problem-solvers passionate about turning ideas into impactful digital experiences. Our mission is simple: to provide end-to-end solutions for businesses looking to grow, adapt, and succeed in the fast-changing digital world. From building powerful websites and mobile apps to crafting smart marketing strategies and branding solutions, we combine creativity with technology to deliver results that matter. CohortLab exists because every business deserves a partner that not only understands their vision but also helps them achieve it with precision, innovation, and care.`;
+const words = `At CohortLab, we are more than just a digital partner — we are a team of innovators, creators, and problem-solvers passionate about turning ideas into impactful digital experiences. Our mission is simple: to provide end-to-end solutions for businesses looking to grow, adapt, and succeed in the fast-changing digital world. From building powerful websites and mobile apps to crafting smart marketing strategies and branding solutions, we combine creativity with technology to deliver results that matter. CohortLab exists because every business deserves a partner that not only understands their vision but also helps them achieve it with precision, innovation, and care.`;
 const data = [
     {
       title: "Innovation",
