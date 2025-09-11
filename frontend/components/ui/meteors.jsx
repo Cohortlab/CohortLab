@@ -1,13 +1,36 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export const Meteors = ({
   number,
   className
 }) => {
+  const [isClient, setIsClient] = useState(false);
   const meteors = new Array(number || 20).fill(true);
+  
+  // Generate deterministic delay and duration based on index
+  const getAnimationDelay = (index) => {
+    const delays = [0, 0.8, 1.6, 2.4, 3.2, 4.0, 0.4, 1.2, 2.0, 2.8, 3.6, 4.4, 0.2, 1.0, 1.8, 2.6, 3.4, 4.2, 0.6, 1.4];
+    return delays[index % delays.length];
+  };
+  
+  const getAnimationDuration = (index) => {
+    const durations = [7, 8, 6, 9, 7.5, 8.5, 6.5, 9.5, 7.2, 8.2, 6.8, 9.2, 7.8, 8.8, 6.2, 9.8, 7.1, 8.1, 6.9, 9.1];
+    return durations[index % durations.length];
+  };
+
+  // Ensure we only render animations on the client side after hydration
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Don't render animations until after hydration to prevent mismatch
+  if (!isClient) {
+    return <div className="relative"></div>;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -29,8 +52,8 @@ export const Meteors = ({
             style={{
               top: "-40px", // Start above the container
               left: position + "px",
-              animationDelay: Math.random() * 5 + "s", // Random delay between 0-5s
-              animationDuration: Math.floor(Math.random() * (10 - 5) + 5) + "s", // Keep some randomness in duration
+              animationDelay: getAnimationDelay(idx) + "s",
+              animationDuration: getAnimationDuration(idx) + "s",
             }}></span>
         );
       })}

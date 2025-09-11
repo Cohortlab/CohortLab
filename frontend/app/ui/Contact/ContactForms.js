@@ -1,8 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import CustomAlert from "@/components/ui/CustomAlert";
+import toast from 'react-hot-toast';
 import { Meteors } from "@/components/ui/meteors";
 import { motion } from "motion/react";
+import getConfig from '@/lib/config';
+
+const API_BASE_URL = getConfig().api.baseUrl;
 
 // Custom validation functions
 const validateEmail = (email) => {
@@ -111,7 +114,6 @@ const InputField = ({
 );
 
 export default function ContactForms() {
-  const [alert, setAlert] = useState({ open: false, type: 'success', message: '' });
   const [activeTab, setActiveTab] = useState("consultancy");
   const [formData, setFormData] = useState({
     consultancy: {
@@ -218,20 +220,27 @@ export default function ContactForms() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form submission started');
+    
     if (!validateForm()) {
-      setAlert({ 
-        open: true, 
-        type: 'error', 
-        message: 'Please check your form for any errors' 
-      });
+      toast.error('Please check your form for any errors');
       return;
     }
 
     setIsSubmitting(true);
+    console.log('Showing initial toast...');
+    
+    // Show thanks
+    toast.success('Thank you! We will reach you soon.', {
+      duration: 4000,
+      position: 'top-center',
+    });
+
     try {
-      const endpoint = activeTab === 'consultancy' ? '/api/consultancy' : '/api/book-call';
+      const endpoint = activeTab === 'consultancy' ? 'consultancy' : 'book-call';
+      console.log('Making API call to:', `${API_BASE_URL}/${endpoint}`);
       
-      const response = await fetch(endpoint, {
+      const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData[activeTab])
@@ -240,13 +249,18 @@ export default function ContactForms() {
       const result = await response.json();
       
       if (response.ok) {
-        setAlert({ 
-          open: true, 
-          type: 'success', 
-          message: activeTab === 'consultancy' 
-            ? 'Your consultation request has been submitted successfully! We\'ll get back to you soon.'
-            : 'Your call has been scheduled successfully! We\'ll contact you at the specified time.'
-        });
+        // Update with more detailed success message after API response
+        setTimeout(() => {
+          toast.success(
+            activeTab === 'consultancy' 
+              ? 'Your consultation request has been submitted successfully! We\'ll get back to you soon.'
+              : 'Your call has been scheduled successfully! We\'ll contact you at the specified time.',
+            {
+              duration: 6000,
+              position: 'top-center',
+            }
+          );
+        }, 1500); // Show detailed message after 1.5 seconds
         
         // Reset form
         setFormData(prev => ({
@@ -256,18 +270,16 @@ export default function ContactForms() {
             : { fullName: "", email: "", phoneNumber: "", preferredDateTime: "", topicDiscussion: "", additionalNotes: "" }
         }));
       } else {
-        setAlert({ 
-          open: true, 
-          type: 'error', 
-          message: result.message || 'Submission failed. Please try again.' 
+        toast.error(result.message || 'Submission failed. Please try again.', {
+          duration: 5000,
+          position: 'top-center',
         });
       }
     } catch (error) {
       console.error('Submission error:', error);
-      setAlert({ 
-        open: true, 
-        type: 'error', 
-        message: 'Network error. Please check your connection and try again.' 
+      toast.error('Network error. Please check your connection and try again.', {
+        duration: 5000,
+        position: 'top-center',
       });
     } finally {
       setIsSubmitting(false);
@@ -276,13 +288,6 @@ export default function ContactForms() {
 
   return (
     <div id="contact-forms" className="relative w-full max-w-6xl mx-auto p-6 mt-20">
-      <CustomAlert 
-        open={alert.open} 
-        type={alert.type} 
-        message={alert.message} 
-        onClose={() => setAlert(a => ({ ...a, open: false }))} 
-      />
-      
       {/* Background effect similar to Join component */}
       <div className="absolute inset-0 h-full w-full scale-[0.95] transform rounded-2xl bg-gradient-to-r from-blue-500 to-[#010618] blur-3xl opacity-40 pointer-events-none" />
 
@@ -660,6 +665,11 @@ export default function ContactForms() {
 @keyframes pulse-slower { 0%,100%{opacity:0.5;} 50%{opacity:0.9;} }
 @keyframes move-x { 0%{transform:translateX(0);} 50%{transform:translateX(20px);} 100%{transform:translateX(0);} }
 @keyframes move-x-slow { 0%{transform:translateX(0);} 50%{transform:translateX(-15px);} 100%{transform:translateX(0);} }
+@keyframes slideInDown { 
+  0% { transform: translateY(-100px) scale(0.9); opacity: 0; }
+  50% { transform: translateY(-10px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
 .animate-pulse-slow { animation: pulse-slow 3.5s ease-in-out infinite; }
 .animate-pulse-slower { animation: pulse-slower 6s ease-in-out infinite; }
 .animate-move-x { animation: move-x 5s ease-in-out infinite; }

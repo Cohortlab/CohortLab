@@ -161,6 +161,12 @@ export const SkeletonTwo = () => {
     "https://images.unsplash.com/photo-1546484475-7f7bd55792da?q=80&w=2581&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
 
+  // Generate deterministic rotation values based on index
+  const getRotation = (index, offset = 0) => {
+    const rotations = [-7, 3, -9, 6, -4, 8, -2, 5, -6, 4];
+    return rotations[(index + offset) % rotations.length];
+  };
+
   const imageVariants = {
     whileHover: {
       scale: 1.1,
@@ -183,7 +189,7 @@ export const SkeletonTwo = () => {
             variants={imageVariants}
             key={"images-first" + idx}
             style={{
-              rotate: Math.random() * 20 - 10,
+              rotate: getRotation(idx),
             }}
             whileHover="whileHover"
             whileTap="whileTap"
@@ -202,7 +208,7 @@ export const SkeletonTwo = () => {
           <motion.div
             key={"images-second" + idx}
             style={{
-              rotate: Math.random() * 20 - 10,
+              rotate: getRotation(idx, 3), // Offset by 3 to get different rotations
             }}
             variants={imageVariants}
             whileHover="whileHover"

@@ -38,18 +38,18 @@ export const HeroParallax = ({
         }}
         className="">
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product) => (
-            <ProductCard product={product} translate={translateX} key={product.title} /> 
+          {firstRow.map((product, index) => (
+            <ProductCard product={product} translate={translateX} key={product.title || product.thumbnail || index} /> 
           ))}
         </motion.div>
         <motion.div className="flex flex-row  mb-20 space-x-20 ">
-          {secondRow.map((product) => (
-            <ProductCard product={product} translate={translateXReverse} key={product.title} />
+          {secondRow.map((product, index) => (
+            <ProductCard product={product} translate={translateXReverse} key={product.title || product.thumbnail || index} />
           ))}
         </motion.div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <ProductCard product={product} translate={translateX} key={product.title} />
+          {thirdRow.map((product, index) => (
+            <ProductCard product={product} translate={translateX} key={product.title || product.thumbnail || index} />
           ))}
         </motion.div>
       </motion.div>
@@ -85,19 +85,19 @@ export const ProductCard = ({
         y: -20,
       }}
       className="group/product h-96 w-[30rem] relative shrink-0">
-      <a href={product.link} className="block group-hover/product:shadow-2xl ">
+      <a href={product.link || "#"} className="block group-hover/product:shadow-2xl ">
         <img
           src={product.thumbnail}
           height="600"
           width="600"
           className="object-cover object-left-top absolute h-full w-full inset-0"
-          alt={product.title} />
+          alt={product.title || "Product image"} />
       </a>
       <div
         className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
       <h2
         className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {product.title}
+        {product.title || ""}
       </h2>
     </motion.div>
   );

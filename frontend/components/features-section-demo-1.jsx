@@ -73,13 +73,16 @@ export const Grid = ({
   pattern,
   size
 }) => {
-  const p = pattern ?? [
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+  // Generate deterministic pattern values to avoid hydration mismatches
+  const defaultPattern = [
+    [9, 3],
+    [8, 4],
+    [10, 2],
+    [7, 5],
+    [9, 6],
   ];
+  
+  const p = pattern ?? defaultPattern;
   return (
     <div
       className="pointer-events-none absolute left-1/2 top-0  -ml-20 -mt-2 h-full w-full [mask-image:linear-gradient(white,transparent)]">

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import CustomAlert from "@/components/ui/CustomAlert";
+import toast, { Toaster } from 'react-hot-toast';
 import { FileUpload } from "@/components/ui/file-upload";
 import { Meteors } from "@/components/ui/meteors";
 import { motion } from "motion/react";
@@ -131,7 +131,6 @@ const InputField = ({ label, type = "text", field, placeholder, required = true,
 );
 
 export default function Join() {
-  const [alert, setAlert] = useState({ open: false, type: 'success', message: '' });
   const [activeTab, setActiveTab] = useState("developer");
   const [formData, setFormData] = useState({
     developer: {
@@ -252,15 +251,20 @@ export default function Join() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
-      setAlert({ 
-        open: true, 
-        type: 'error', 
-        message: 'Re-check your form, as it has some issue' 
+      toast.error('Re-check your form, as it has some issue', {
+        position: 'bottom-center',
       });
       return;
     }
 
     setIsSubmitting(true);
+    
+    // Show immediate thank you toast
+    toast.success('Thank you! We will reach you soon.', {
+      duration: 4000,
+      position: 'top-center',
+    });
+
     try {
       let response;
       if (activeTab === 'partner') {
@@ -290,7 +294,14 @@ export default function Join() {
       }
       const result = await response.json();
       if (response.ok) {
-        setAlert({ open: true, type: 'success', message: `${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} application submitted successfully!` });
+        // Show detailed success message after API response
+        setTimeout(() => {
+          toast.success(`${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} application submitted successfully!`, {
+            duration: 6000,
+            position: 'top-center',
+          });
+        }, 1500);
+        
         setFormData(prev => ({
           ...prev,
           [activeTab]: activeTab === 'developer' 
@@ -300,11 +311,15 @@ export default function Join() {
             : { name: "", email: "", contactNumber: "", linkedinUrl: "", message: "" }
         }));
       } else {
-        setAlert({ open: true, type: 'error', message: result.message || 'Submission failed. Please check and try again.' });
+        toast.error(result.message || 'Submission failed. Please check and try again.', {
+          position: 'top-center',
+        });
       }
     } catch (error) {
       console.error('Submission error:', error);
-      setAlert({ open: true, type: 'error', message: 'Submission failed. Please check and try again.' });
+      toast.error('Submission failed. Please check and try again.', {
+        position: 'top-center',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -312,7 +327,49 @@ export default function Join() {
 
   return (
     <div className="relative w-full max-w-6xl mx-auto p-6">
-      <CustomAlert open={alert.open} type={alert.type} message={alert.message} onClose={() => setAlert(a => ({ ...a, open: false }))} />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: 'rgba(15, 23, 42, 0.95)',
+            color: '#fff',
+            fontSize: '16px',
+            fontWeight: '600',
+            padding: '20px 24px',
+            borderRadius: '16px',
+            border: '2px solid rgba(56, 189, 248, 0.4)',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 20px rgba(56, 189, 248, 0.3)',
+            backdropFilter: 'blur(16px)',
+            minWidth: '350px',
+            animation: 'slideInDown 0.5s ease-out',
+          },
+          success: {
+            style: {
+              background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)',
+              border: '2px solid rgba(34, 197, 94, 0.6)',
+              boxShadow: '0 25px 50px -12px rgba(34, 197, 94, 0.25), 0 0 0 1px rgba(34, 197, 94, 0.1), 0 0 30px rgba(34, 197, 94, 0.4)',
+              color: '#fff',
+            },
+            iconTheme: {
+              primary: '#22C55E',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            style: {
+              background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)',
+              border: '2px solid rgba(239, 68, 68, 0.6)',
+              boxShadow: '0 25px 50px -12px rgba(239, 68, 68, 0.25), 0 0 0 1px rgba(239, 68, 68, 0.1), 0 0 30px rgba(239, 68, 68, 0.4)',
+              color: '#fff',
+            },
+            iconTheme: {
+              primary: '#EF4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
       {/* Background effect similar to Footer */}
       <div className="absolute inset-0 h-full w-full scale-[0.95] transform rounded-2xl bg-gradient-to-r from-blue-500 to-[#010618] blur-3xl opacity-40 pointer-events-none" />
 
@@ -552,6 +609,15 @@ export default function Join() {
       <TextHoverEffect text="COHORT" />
       <TextHoverEffect text="LAB" />
     </div>
+    
+    {/* Add slide animation CSS */}
+    <style jsx global>{`
+      @keyframes slideInDown { 
+        0% { transform: translateY(-100px) scale(0.9); opacity: 0; }
+        50% { transform: translateY(-10px) scale(1.02); }
+        100% { transform: translateY(0) scale(1); opacity: 1; }
+      }
+    `}</style>
     </div>
   );
 }
