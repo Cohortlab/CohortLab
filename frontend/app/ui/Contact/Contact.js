@@ -9,6 +9,7 @@ import Image from "next/image";
 import ContactForms from "./ContactForms";
 import Typewriter from "typewriter-effect";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { Toaster } from 'react-hot-toast';
 export function Contact() {
   const features = [
     {
@@ -44,6 +45,57 @@ export function Contact() {
   ];
   return (
     <div>
+      {/* Toast container at the top level with high z-index */}
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: 'rgba(15, 23, 42, 0.95)',
+            color: '#fff',
+            fontSize: '16px',
+            fontWeight: '600',
+            padding: '20px 24px',
+            borderRadius: '16px',
+            border: '2px solid rgba(56, 189, 248, 0.4)',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 20px rgba(56, 189, 248, 0.3)',
+            backdropFilter: 'blur(16px)',
+            minWidth: '350px',
+            animation: 'slideInDown 0.5s ease-out',
+            zIndex: 99999,
+          },
+          success: {
+            style: {
+              background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)',
+              border: '2px solid rgba(34, 197, 94, 0.6)',
+              boxShadow: '0 25px 50px -12px rgba(34, 197, 94, 0.25), 0 0 0 1px rgba(34, 197, 94, 0.1), 0 0 30px rgba(34, 197, 94, 0.4)',
+              color: '#fff',
+              zIndex: 99999,
+            },
+            iconTheme: {
+              primary: '#22C55E',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            style: {
+              background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)',
+              border: '2px solid rgba(239, 68, 68, 0.6)',
+              boxShadow: '0 25px 50px -12px rgba(239, 68, 68, 0.25), 0 0 0 1px rgba(239, 68, 68, 0.1), 0 0 30px rgba(239, 68, 68, 0.4)',
+              color: '#fff',
+              zIndex: 99999,
+            },
+            iconTheme: {
+              primary: '#EF4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+        containerStyle={{
+          zIndex: 99999,
+        }}
+      />
+      
       <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
         <div className="px-8">
           <h4
@@ -51,7 +103,7 @@ export function Contact() {
             We have solution for your every digitals and marketing needs
           </h4>
 
-              <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+              <div className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
         <Typewriter
           options={{
             strings: [
@@ -62,7 +114,7 @@ export function Contact() {
             delay: 50,
           }}
         />
-      </p>
+      </div>
         </div>
         <div className="relative ">
           <div
@@ -181,6 +233,12 @@ export const SkeletonTwo = () => {
     "https://images.unsplash.com/photo-1546484475-7f7bd55792da?q=80&w=2581&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
 
+  // Generate deterministic rotation values based on index
+  const getRotation = (index, offset = 0) => {
+    const rotations = [-8, 4, -3, 7, -5, 2, -6, 9, -2, 5];
+    return rotations[(index + offset) % rotations.length];
+  };
+
   const imageVariants = {
     whileHover: {
       scale: 1.1,
@@ -203,7 +261,7 @@ export const SkeletonTwo = () => {
             variants={imageVariants}
             key={"images-first" + idx}
             style={{
-              rotate: Math.random() * 20 - 10,
+              rotate: getRotation(idx),
             }}
             whileHover="whileHover"
             whileTap="whileTap"
@@ -222,7 +280,7 @@ export const SkeletonTwo = () => {
           <motion.div
             key={"images-second" + idx}
             style={{
-              rotate: Math.random() * 20 - 10,
+              rotate: getRotation(idx, 5), // Offset by 5 to get different rotations
             }}
             variants={imageVariants}
             whileHover="whileHover"
