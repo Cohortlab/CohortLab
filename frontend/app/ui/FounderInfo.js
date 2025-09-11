@@ -42,10 +42,10 @@ export default function FounderInfo() {
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Meet Our Founders
+              Who Started It All
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              The visionaries behind CohortLab, bringing together expertise and innovation to deliver exceptional digital solutions.
+              The creative force powering CohortLab&apos;s journey toward digital excellence.
             </p>
           </div>
 
