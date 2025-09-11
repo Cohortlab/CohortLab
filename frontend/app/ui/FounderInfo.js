@@ -45,7 +45,7 @@ export default function FounderInfo() {
               Who Started It All
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              The creative force powering CohortLab’s journey toward digital excellence.
+              The creative force powering CohortLab&apos;s journey toward digital excellence.
             </p>
           </div>
 
