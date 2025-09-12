@@ -40,14 +40,14 @@ export function Testimonials() {
     },
   ];
   return(
-    <div>
-        <div className="mt-20 mx-auto max-w-lg mb-10 py-2 text-4xl font-bold tracking-tight md:text-6xl">
+    <div className="w-full overflow-x-hidden px-4">
+        <div className="mt-10 md:mt-20 mx-auto max-w-lg mb-6 md:mb-10 py-2 text-2xl md:text-4xl lg:text-6xl font-bold tracking-tight text-center">
         Client
         <PointerHighlight>
           <span>Testimonials</span>
         </PointerHighlight>
       </div>
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center mb-6 md:mb-10 w-full">
       <AnimatedTestimonials testimonials={testimonials} />
     </div></div>
   );

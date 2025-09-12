@@ -13,15 +13,18 @@ import { ContactButton } from "./ui/ContactButton";
 import { Services2Support } from "./ui/Services2/Services2Support";
 export default function Home() {
   return (
-    <div>
+    <div className="w-full overflow-x-hidden">
       <Hero1 />
       <Hero2 />
       <Hero3 />
-      <Carousel1 />
+      <div className="w-full overflow-x-hidden">
+        <Carousel1 />
+      </div>
       {/* <ServiceCard /> */}
       <Services2Support />
       <Agile />
-      <div className="flex flex-col items-center justify-center mt-20 mb-10"><Testimonials />
+      <div className="flex flex-col items-center justify-center mt-10 md:mt-20 mb-6 md:mb-10 w-full overflow-x-hidden">
+        <Testimonials />
         <Testimonial2 />
       </div>
       

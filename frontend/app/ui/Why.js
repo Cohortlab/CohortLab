@@ -60,21 +60,21 @@ const Why = () => {
         }}
       ></div>
 
-      <div className="relative container mx-auto px-6">
+      <div className="relative container mx-auto px-4 md:px-6">
         {/* Section Header */}
-        <div className="mt-20 mx-auto max-w-lg mb-10 py-2 text-2xl font-bold tracking-tight md:text-4xl">
+        <div className="mt-10 md:mt-20 mx-auto max-w-lg mb-6 md:mb-10 py-2 text-xl md:text-2xl lg:text-4xl font-bold tracking-tight text-center">
             Why Choose
             <PointerHighlight>
-              <span className='text-6xl'>Us...?</span>
+              <span className='text-3xl md:text-4xl lg:text-6xl'>Us...?</span>
             </PointerHighlight> 
           </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 md:p-8 hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl"
               style={{
                 animationDelay: `${index * 150}ms`,
                 animation: 'fadeInUp 0.8s ease-out forwards'
@@ -84,16 +84,16 @@ const Why = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-gray-700/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
               
               {/* Icon */}
-              <div className={`relative w-16 h-16 ${feature.bgColor} rounded-full flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`relative w-12 h-12 md:w-16 md:h-16 ${feature.bgColor} rounded-full flex items-center justify-center text-white text-lg md:text-2xl mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 {feature.icon}
               </div>
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+                <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
                   {feature.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed text-sm">
+                <p className="text-gray-300 leading-relaxed text-xs md:text-sm">
                   {feature.description}
                 </p>
               </div>

@@ -6,6 +6,7 @@ import { Product } from "./Product";
 
 export function ProductSupport() {
   return (
+    <div className="w-full overflow-x-hidden">
     <LampContainer>
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
@@ -15,9 +16,10 @@ export function ProductSupport() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl md:text-4xl lg:text-7xl font-medium tracking-tight text-transparent px-4">
         
-      </motion.h1><div className="mt-50"><Product /></div>
+      </motion.h1><div className="mt-4 md:mt-50 w-full"><Product /></div>
     </LampContainer>
+    </div>
   );
 }

@@ -15,7 +15,7 @@ export function Floating() {
     {
       title: "Get Free Consultancy",
       icon: (
-        <IconStar stroke={2} className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconStar stroke={2} className="h-full w-full text-white" />
       ),
       href: "/call#consultancy",
     },
@@ -23,14 +23,14 @@ export function Floating() {
     {
       title: "Book a Call",
       icon: (
-        <IconPhoneDone stroke={2} className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconPhoneDone stroke={2} className="h-full w-full text-white" />
       ),
       href: "/call#book-call",
     },
     {
       title: "Services",
       icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconNewSection className="h-full w-full text-white" />
       ),
       href: "/services",
     },
@@ -48,7 +48,7 @@ export function Floating() {
     {
       title: "Mail Us",
       icon: (
-        <IconMail stroke={2} className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconMail stroke={2} className="h-full w-full text-white" />
       ),
       href: "mailto:101rishidsr@gmail.com",
     },
@@ -57,23 +57,23 @@ export function Floating() {
     {
       title: "LinkedIn",
       icon: (
-        <SiLinkedin  className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <SiLinkedin  className="h-full w-full text-white" />
       ),
       href: "https://www.linkedin.com/company/cohortlab/",
     },
     {
       title: "Want to Contribute or Report Issues?",
       icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandGithub className="h-full w-full text-white" />
       ),
       href: "https://github.com/Cohortlab/CohortLab",
     },
   ];
   return (
-    <div className="flex items-center justify-center h-[35rem] w-full">
+    <div className="flex items-center justify-center h-[20rem] md:h-[35rem] w-full">
       <FloatingDock
-        // only for demo, remove for production
-        mobileClassName="translate-x-20"
+        // Mobile optimized positioning
+        mobileClassName="translate-x-8 md:translate-x-20"
         items={links} />
     </div>
   );

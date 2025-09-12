@@ -5,31 +5,31 @@ import { Meteors } from "@/components/ui/meteors";
 
 export default function Footer() {
   return (
-    <div className="relative w-full max-w-7xl mx-auto">
+    <div className="relative w-full max-w-7xl mx-auto px-2">
       {/* Meteor background effect */}
       <div className="absolute inset-0 h-full w-full scale-[0.95] transform rounded-2xl bg-gradient-to-r from-blue-500 to-teal-500 blur-3xl opacity-40 pointer-events-none" />
       <footer className="mt-16 z-20 relative flex flex-col items-start justify-end overflow-hidden rounded-2xl border border-gray-800 bg-black/70 backdrop-blur-sm px-4 py-8 shadow-xl">
         {/* Meteor animation */}
         <Meteors number={20} />
-        <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+        <div className="container mx-auto px-2 md:px-6 py-6 md:py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative z-10">
           {/* Logo and Image */}
-          <div>
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <Image
               src="/3.png"
               alt="CohortLab logo"
               width={500}
               height={300}
-              className="mb-4 max-w-[220px] h-auto"
+              className="mb-4 max-w-[180px] md:max-w-[220px] h-auto"
             />
-            <p className="text-sm text-gray-400">
+            <p className="text-xs md:text-sm text-gray-400">
               All rights are reserved by CohortLab.
             </p>
           </div>
 
           {/* Product Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Product</h3>
-            <ul className="text-gray-400 space-y-2">
+            <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-white">Product</h3>
+            <ul className="text-gray-400 space-y-1 md:space-y-2 text-sm md:text-base">
               <li>job.CohortLab</li>
               <li>FreeLance.CohortLab</li>
               <li>Sync.CohortLab</li>
@@ -38,8 +38,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Contact Us</h3>
-            <ul className="text-gray-400 space-y-2">
+            <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-white">Contact Us</h3>
+            <ul className="text-gray-400 space-y-1 md:space-y-2 text-sm md:text-base">
               <li>X</li>
               <li>LinkedIn</li>
               <li>Mail</li>
@@ -48,9 +48,9 @@ export default function Footer() {
           </div>
 
           {/* Features */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Features</h3>
-            <ul className="text-gray-400 space-y-2">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
+            <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-white">Features</h3>
+            <ul className="text-gray-400 space-y-1 md:space-y-2 text-sm md:text-base">
               <li>Website Design &amp; Development</li>
               <li>Website Translation / Localization</li>
               <li>UI/UX Design</li>

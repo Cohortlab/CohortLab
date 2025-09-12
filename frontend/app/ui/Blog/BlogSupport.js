@@ -5,6 +5,7 @@ import { LampContainer } from "@/components/ui/lamp";
 import { Blog } from "./Blog";
 export function BlogSupport() {
   return (
+    <div className="w-full overflow-x-hidden">
     <LampContainer>
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
@@ -14,9 +15,10 @@ export function BlogSupport() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl md:text-4xl lg:text-7xl font-medium tracking-tight text-transparent px-4">
         
-      </motion.h1><div className="mt-10"><Blog /></div>
+      </motion.h1><div className="mt-4 md:mt-10 w-full"><Blog /></div>
     </LampContainer>
+    </div>
   );
 }

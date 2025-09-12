@@ -22,37 +22,37 @@ export function NavbarMain() {
     {
       name: "Home",
       link: "/",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconHome className="h-4 w-4 text-white" />,
     },
     {
       name: "Services",
       link: "/services",
-      icon: <IconSettings className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconSettings className="h-4 w-4 text-white" />,
     },
     {
       name: "Products", 
       link: "/products",
-      icon: <IconShoppingBag className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconShoppingBag className="h-4 w-4 text-white" />,
     },
     {
       name: "Blog",
       link: "/blog", 
-      icon: <IconNews className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconNews className="h-4 w-4 text-white" />,
     },
     {
       name: " About Us",
       link: "/about",
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconUser className="h-4 w-4 text-white" />,
     },
     {
       name: "Join Us",
       link: "/join",
-      icon: <IconUsers className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconUsers className="h-4 w-4 text-white" />,
     },
     {
       name: "Contact Us",
       link: "/call",
-      icon: <IconPhone className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconPhone className="h-4 w-4 text-white" />,
     },
     
   ];
@@ -98,35 +98,38 @@ export function NavbarMain() {
 
 const FloatingActionButtons = () => {
   return (
-    <div className="fixed top-4 right-4 z-[5000] flex items-center gap-2">
+    <div className="fixed top-4 right-4 z-[5000] flex items-center gap-1 md:gap-2">
       <Link
         href="/call#consultancy"
         className="
-          hidden md:flex items-center gap-2 px-4 py-2 
+          hidden lg:flex items-center gap-2 px-3 md:px-4 py-2 
           bg-[#022E44] dark:bg-[#010618]
           border border-neutral-200 dark:border-neutral-700 
-          rounded-full text-sm font-medium
+          rounded-full text-xs md:text-sm font-medium
           text-neutral-600 dark:text-neutral-300
           hover:bg-[#010618] dark:hover:bg-[#010618]
           transition-all duration-200
           backdrop-blur-md liquid-hover
         "
       >
-        <IconStar className="h-4 w-4" />
-        Get Free Consultancy
+        <IconStar className="h-3 w-3 md:h-4 md:w-4" />
+        <span className="hidden xl:inline">Get Free Consultancy</span>
+        <span className="xl:hidden">Consultancy</span>
       </Link>
       <Link
         href="/call#book-call"
         className="
-          flex items-center gap-2 px-4 py-2
+          flex items-center gap-1 md:gap-2 px-3 md:px-4 py-2
           bg-[#022E44] hover:bg-[#010618]
-          text-white rounded-full text-sm font-medium
+          text-white rounded-full text-xs md:text-sm font-medium
           transition-all duration-200
           backdrop-blur-md liquid-hover
+          min-h-[40px] min-w-[40px]
         "
       >
-        <IconCalendar className="h-4 w-4" />
-        Book a call
+        <IconCalendar className="h-3 w-3 md:h-4 md:w-4" />
+        <span className="hidden sm:inline">Book a call</span>
+        <span className="sm:hidden">Call</span>
       </Link>
     </div>
   );

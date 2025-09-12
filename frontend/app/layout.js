@@ -28,14 +28,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} cz-shortcut-listen="true">
        
           {/* Navbar */}
           <NavbarMain />
 
-          <main>{children}</main>
+          <main className="overflow-x-hidden">{children}</main>
 
-          <div className="fixed left-0 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center transition-opacity duration-300 opacity-60 hover:opacity-100">
+          <div className="fixed left-2 md:left-0 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center transition-opacity duration-300 opacity-60 hover:opacity-100">
             <Floating />
           </div>
 
