@@ -11,25 +11,25 @@ export default function Footer() {
       <footer className="mt-16 z-20 relative flex flex-col items-start justify-end overflow-hidden rounded-2xl border border-gray-800 bg-black/70 backdrop-blur-sm px-4 py-8 shadow-xl">
         {/* Meteor animation */}
         <Meteors number={20} />
-        <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
           {/* Logo and Image */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <Image
               src="/3.png"
               alt="CohortLab logo"
               width={500}
               height={300}
-              className="mb-4 max-w-[220px] h-auto"
+              className="mb-4 max-w-[180px] sm:max-w-[220px] h-auto"
             />
-            <p className="text-sm text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-400">
               All rights are reserved by CohortLab.
             </p>
           </div>
 
           {/* Product Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Product</h3>
-            <ul className="text-gray-400 space-y-2">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Product</h3>
+            <ul className="text-gray-400 space-y-1 sm:space-y-2 text-sm sm:text-base">
               <li>job.CohortLab</li>
               <li>FreeLance.CohortLab</li>
               <li>Sync.CohortLab</li>
@@ -38,8 +38,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Contact Us</h3>
-            <ul className="text-gray-400 space-y-2">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Contact Us</h3>
+            <ul className="text-gray-400 space-y-1 sm:space-y-2 text-sm sm:text-base">
               <li>X</li>
               <li>LinkedIn</li>
               <li>Mail</li>
@@ -48,9 +48,9 @@ export default function Footer() {
           </div>
 
           {/* Features */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Features</h3>
-            <ul className="text-gray-400 space-y-2">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Features</h3>
+            <ul className="text-gray-400 space-y-1 sm:space-y-2 text-sm sm:text-base">
               <li>Website Design &amp; Development</li>
               <li>Website Translation / Localization</li>
               <li>UI/UX Design</li>

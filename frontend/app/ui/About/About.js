@@ -548,14 +548,14 @@ const data = [
   return (
     <div>
     <div>
-    <div className="mt-50 ml-30 mr-30">
+    <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-20">
       <TextGenerateEffect words={words} />
     </div>
           <div className="relative w-full overflow-clip">
             <Timeline data={data} />
           </div>
     
-     <div className="flex flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
+     <div className="flex flex-row items-center justify-center py-10 sm:py-20 min-h-screen md:h-auto dark:bg-black bg-white relative w-full">
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
         <motion.div
           initial={{
@@ -571,10 +571,10 @@ const data = [
           }}
           className="div"
         >
-          <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
+          <h2 className="text-center text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-black dark:text-white">
             We provide services worldwide
           </h2>
-          <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
+          <p className="text-center text-sm sm:text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto px-4">
              And we build trust and long-term relationships with our clients.
           </p>
         </motion.div>
@@ -588,9 +588,11 @@ const data = [
     <FounderInfo />
     </div>
 
-    <div className="h-[40rem]items-center justify-center">
-      <TextHoverEffect text="COHORT" />
-      <TextHoverEffect text="LAB" />
+    <div className="min-h-[20rem] sm:h-[30rem] md:h-[40rem] flex items-center justify-center px-4">
+      <div className="text-center">
+        <TextHoverEffect text="COHORT" />
+        <TextHoverEffect text="LAB" />
+      </div>
     </div></div>
   )
 }

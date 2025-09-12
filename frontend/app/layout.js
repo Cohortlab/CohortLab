@@ -27,15 +27,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} cz-shortcut-listen="true">
+    <html lang="en" className="dark">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`} cz-shortcut-listen="true">
        
           {/* Navbar */}
           <NavbarMain />
 
-          <main>{children}</main>
+          <main className="relative">{children}</main>
 
-          <div className="fixed left-0 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center transition-opacity duration-300 opacity-60 hover:opacity-100">
+          {/* Mobile-responsive floating dock - hidden on small screens when navbar actions are visible */}
+          <div className="fixed left-2 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center transition-opacity duration-300 opacity-60 hover:opacity-100 sm:left-4 lg:opacity-60 lg:hover:opacity-100">
             <Floating />
           </div>
 
