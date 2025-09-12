@@ -3,8 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NavbarMain } from "./ui/Navbar";
 import { Floating } from "./ui/Floating";
-import Footer from "./ui/Footer"; 
-import { ThemeProvider } from 'next-themes'
+import Footer from "./ui/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,14 +27,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html ang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`} cz-shortcut-listen="true">
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
           {/* Navbar */}
           <NavbarMain />
 
@@ -47,7 +40,6 @@ export default function RootLayout({ children }) {
           </div>
 
           <Footer />
-        </ThemeProvider>
       </body>
     </html>
   );
