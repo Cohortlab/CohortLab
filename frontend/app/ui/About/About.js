@@ -548,7 +548,8 @@ const data = [
   return (
     <div>
     <div>
-    <div className="mt-16 sm:mt-12 md:mt-16 lg:mt-20 mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-20">
+    {/* <div className="mt-16 sm:mt-12 md:mt-16 lg:mt-20 mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-20"> */}
+    <div className="mt-75">
       <TextGenerateEffect words={words} />
     </div>
           <div className="relative w-full overflow-clip">
