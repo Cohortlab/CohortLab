@@ -15,7 +15,7 @@ export default function JoinPage() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-medium tracking-tight text-transparent px-4"
         >
           Partner. Build. Market.
         </motion.h1>

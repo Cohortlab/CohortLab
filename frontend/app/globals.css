@@ -64,8 +64,9 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* 🌞 Optional Light Mode */
-.light {
+/* 🌞 Light Mode - force consistent theme regardless of system preference */
+:root.light,
+[data-theme="light"] {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -99,6 +100,14 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Override system preference to ensure consistency */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+  }
+}
+
 .notebook-card {
   background: repeating-linear-gradient(
     white,
@@ -130,6 +139,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Ensure consistent theme regardless of system preference */
+    color-scheme: dark;
+  }
+  
+  /* Mobile responsive adjustments */
+  html {
+    @apply scroll-smooth;
+  }
+  
+  /* Fix mobile viewport issues */
+  @media (max-width: 768px) {
+    body {
+      @apply overflow-x-hidden;
+    }
   }
 }
 

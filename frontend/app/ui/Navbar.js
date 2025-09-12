@@ -102,31 +102,33 @@ const FloatingActionButtons = () => {
       <Link
         href="/call#consultancy"
         className="
-          hidden md:flex items-center gap-2 px-4 py-2 
+          hidden sm:flex items-center gap-2 px-3 py-2 lg:px-4 lg:py-2 
           bg-[#022E44] dark:bg-[#010618]
           border border-neutral-200 dark:border-neutral-700 
-          rounded-full text-sm font-medium
+          rounded-full text-xs lg:text-sm font-medium
           text-neutral-600 dark:text-neutral-300
           hover:bg-[#010618] dark:hover:bg-[#010618]
           transition-all duration-200
           backdrop-blur-md liquid-hover
         "
       >
-        <IconStar className="h-4 w-4" />
-        Get Free Consultancy
+        <IconStar className="h-3 w-3 lg:h-4 lg:w-4" />
+        <span className="hidden md:inline">Get Free Consultancy</span>
+        <span className="md:hidden">Consultancy</span>
       </Link>
       <Link
         href="/call#book-call"
         className="
-          flex items-center gap-2 px-4 py-2
+          flex items-center gap-2 px-3 py-2 lg:px-4 lg:py-2
           bg-[#022E44] hover:bg-[#010618]
-          text-white rounded-full text-sm font-medium
+          text-white rounded-full text-xs lg:text-sm font-medium
           transition-all duration-200
           backdrop-blur-md liquid-hover
         "
       >
-        <IconCalendar className="h-4 w-4" />
-        Book a call
+        <IconCalendar className="h-3 w-3 lg:h-4 lg:w-4" />
+        <span className="hidden sm:inline">Book a call</span>
+        <span className="sm:hidden">Call</span>
       </Link>
     </div>
   );
