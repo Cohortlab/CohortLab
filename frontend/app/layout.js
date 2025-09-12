@@ -27,8 +27,27 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`} cz-shortcut-listen="true">
+    <html lang="en" className="dark" style={{colorScheme: 'dark'}} suppressHydrationWarning>
+      <head>
+        <meta name="color-scheme" content="dark only" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Force dark mode immediately
+            (function() {
+              document.documentElement.classList.add('dark');
+              document.documentElement.style.colorScheme = 'dark';
+            })();
+          `
+        }} />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            :root { color-scheme: dark only !important; }
+            html { color-scheme: dark only !important; }
+            body { color-scheme: dark only !important; }
+          `
+        }} />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen dark`} cz-shortcut-listen="true">
           {/* Navbar */}
           <NavbarMain />
 

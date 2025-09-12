@@ -50,7 +50,7 @@ export function Hero1() {
       <motion.div
         animate={{ opacity: showText ? 1 : 0 }}
         transition={{ duration: 0.5 }}
-        className="absolute bottom-8 sm:bottom-12 md:bottom-16 right-4 text-xs sm:text-sm text-slate-400 z-50 px-2"
+        className="absolute bottom-8 sm:bottom-12 md:bottom-34 right-4 text-xs sm:text-sm text-slate-400 z-50 px-2"
       >
         Please scroll down to know more...
       </motion.div>
