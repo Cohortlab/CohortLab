@@ -93,14 +93,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    color-scheme: dark only;
+    @apply scroll-smooth;
+  }
   body {
     @apply bg-background text-foreground;
-    color-scheme: dark;
-  }
-  
-  /* Mobile responsive adjustments */
-  html {
-    @apply scroll-smooth;
+    color-scheme: dark only;
   }
   
   /* Fix mobile viewport issues */

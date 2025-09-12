@@ -18,10 +18,10 @@ export function Hero3() {
           duration: 0.5,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="text-lg px-4 sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto ">
+        className="text-lg px-4 sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto ">
         Passionate about design. Driven by technology.
           We create websites and digital products that inspire, engage, and grow your{" "}
-        <Highlight className="text-black dark:text-white">
+        <Highlight className="text-white">
           Business.
         </Highlight>
       </motion.h1>

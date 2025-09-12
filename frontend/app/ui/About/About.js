@@ -406,7 +406,7 @@ const data = [
       title: "Innovation",
       content: (
         <div>
-          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+          <p className="mb-8 text-xs font-normal text-neutral-200 md:text-sm">
             For points about creativity, new tech, and future focus.
           </p>
           <div className="grid grid-cols-2 gap-4">
@@ -446,10 +446,10 @@ const data = [
       title: "Clarity",
       content: (
         <div>
-          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+          <p className="mb-8 text-xs font-normal text-neutral-200 md:text-sm">
             For points about simplicity, user-centered design, and quality.
           </p>
-          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+          <p className="mb-8 text-xs font-normal text-neutral-200 md:text-sm">
            
           </p>
           <div className="grid grid-cols-2 gap-4">
@@ -489,23 +489,23 @@ const data = [
       title: "Collaboration",
       content: (
         <div>
-          <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+          <p className="mb-4 text-xs font-normal text-neutral-200 md:text-sm">
             For points about teamwork, partnerships, and data-driven growth.
           </p>
           <div className="mb-8">
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <div className="flex items-center gap-2 text-xs text-neutral-300 md:text-sm">
               ✅ Understand the User – conduct research, interviews, and feedback analysis to truly know what your audience needs and expects.
             </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <div className="flex items-center gap-2 text-xs text-neutral-300 md:text-sm">
               ✅ Align with Business Goals – ensure every solution not only satisfies users but also contributes to measurable growth (sales, leads, retention).
             </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <div className="flex items-center gap-2 text-xs text-neutral-300 md:text-sm">
               ✅ Design for Simplicity – create intuitive, easy-to-use solutions that remove friction and enhance user experience.
             </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <div className="flex items-center gap-2 text-xs text-neutral-300 md:text-sm">
               ✅ Iterate with Feedback – test, measure, and improve continuously based on user behavior and business insights.
             </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <div className="flex items-center gap-2 text-xs text-neutral-300 md:text-sm">
               ✅ Scale for the Future – build solutions that grow with both user needs and business expansion, ensuring long-term impact.
             </div>
           </div>
@@ -556,7 +556,7 @@ const data = [
             <Timeline data={data} />
           </div>
     
-     <div className="flex flex-row items-center justify-center py-10 sm:py-20 min-h-screen md:h-auto dark:bg-black bg-white relative w-full">
+     <div className="flex flex-row items-center justify-center py-10 sm:py-20 min-h-screen md:h-auto bg-black relative w-full">
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
         <motion.div
           initial={{
@@ -572,14 +572,14 @@ const data = [
           }}
           className="div"
         >
-          <h2 className="text-center text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-black dark:text-white">
+          <h2 className="text-center text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-white">
             We provide services worldwide
           </h2>
-          <p className="text-center text-sm sm:text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto px-4">
+          <p className="text-center text-sm sm:text-base md:text-lg font-normal text-neutral-200 max-w-md mt-2 mx-auto px-4">
              And we build trust and long-term relationships with our clients.
           </p>
         </motion.div>
-        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
+        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40" />
         <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
@@ -589,12 +589,12 @@ const data = [
     <FounderInfo />
     </div>
 
-    <div className="min-h-[20rem] sm:h-[30rem] md:h-[40rem] flex items-center justify-center px-4">
-      <div className="text-center">
-        <TextHoverEffect text="COHORT" />
-        <TextHoverEffect text="LAB" />
-      </div>
-    </div></div>
+    <div className="h-[40rem]items-center justify-center">
+            <TextHoverEffect text="COHORT" />
+            <TextHoverEffect text="LAB" />
+          </div>
+    
+    </div>
   )
 }
 
