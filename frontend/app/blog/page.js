@@ -5,7 +5,7 @@ import { LampContainer } from "@/components/ui/lamp";
 import { BlogSupport } from "../ui/Blog/BlogSupport";
 export default function BlogPage() {
   return (
-    <div className="">
+    <div className="pt-20">
    <LampContainer>
         <motion.h1
           initial={{ opacity: 0.5, y: 100 }}
@@ -15,12 +15,15 @@ export default function BlogPage() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-medium tracking-tight text-transparent px-4"
+          className="mt-16 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-medium tracking-tight text-transparent px-4"
         >
           Blogs. And. Insights.
         </motion.h1>
 
-      </LampContainer><BlogSupport />
+      </LampContainer>
+      <div className="mt-20">
+        <BlogSupport />
+      </div>
     </div>
   );
 }

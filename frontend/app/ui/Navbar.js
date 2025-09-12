@@ -22,37 +22,37 @@ export function NavbarMain() {
     {
       name: "Home",
       link: "/",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconHome className="h-4 w-4 text-white" />,
     },
     {
       name: "Services",
       link: "/services",
-      icon: <IconSettings className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconSettings className="h-4 w-4 text-white" />,
     },
     {
       name: "Products", 
       link: "/products",
-      icon: <IconShoppingBag className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconShoppingBag className="h-4 w-4 text-white" />,
     },
     {
       name: "Blog",
       link: "/blog", 
-      icon: <IconNews className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconNews className="h-4 w-4 text-white" />,
     },
     {
       name: " About Us",
       link: "/about",
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconUser className="h-4 w-4 text-white" />,
     },
     {
       name: "Join Us",
       link: "/join",
-      icon: <IconUsers className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconUsers className="h-4 w-4 text-white" />,
     },
     {
       name: "Contact Us",
       link: "/call",
-      icon: <IconPhone className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconPhone className="h-4 w-4 text-white" />,
     },
     
   ];
@@ -103,11 +103,11 @@ const FloatingActionButtons = () => {
         href="/call#consultancy"
         className="
           hidden sm:flex items-center gap-2 px-3 py-2 lg:px-4 lg:py-2 
-          bg-[#022E44] dark:bg-[#010618]
-          border border-neutral-200 dark:border-neutral-700 
+          bg-[#010618]
+          border border-neutral-700 
           rounded-full text-xs lg:text-sm font-medium
-          text-neutral-600 dark:text-neutral-300
-          hover:bg-[#010618] dark:hover:bg-[#010618]
+          text-neutral-300
+          hover:bg-[#010618]
           transition-all duration-200
           backdrop-blur-md liquid-hover
         "
