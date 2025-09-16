@@ -3,26 +3,29 @@ import React from "react";
 import { motion } from "motion/react";
 import { LampContainer } from "@/components/ui/lamp";
 import { Product } from "./Product";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 export function ProductSupport() {
   return (
-    <>
-      <LampContainer>
+  <LampContainer intensity="high">
+      {/* children inside LampContainer are moved up by -translate-y-80 in the component; counter that here */}
+      <div className="w-full flex justify-center translate-y-80 pointer-events-none">
         <motion.h1
-          initial={{ opacity: 0.5, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 100, scale: 0.8 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
             delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
+            duration: 1.2,
+            ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-medium tracking-tight text-transparent px-4">
-          
+          viewport={{ once: false, amount: 0.3 }}
+          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+        >
+          Sync AI
         </motion.h1>
-      </LampContainer>
-      <div className="mt-16 sm:mt-20 lg:mt-50">
-        <Product />
       </div>
-    </>
+
+      <Product />
+    </LampContainer>
   );
 }
