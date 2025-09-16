@@ -19,9 +19,9 @@ export function ProductSupport() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
           viewport={{ once: false, amount: 0.3 }}
-          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+          className="mt-100 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
         >
-          Sync AI
+          
         </motion.h1>
       </div>
 
