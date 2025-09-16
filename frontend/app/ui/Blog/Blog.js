@@ -141,17 +141,17 @@ export function Blog() {
       </div>
 
       {/* SEO-Optimized Blog Grid */}
-      <div className="max-w-7xl mx-auto px-4 pb-16">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <header className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 px-2">
             Insights &amp; Industry Trends
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Discover the latest in web development, digital marketing, AI integration, and business growth strategies from industry experts
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {blogData.map((blog, index) => {
             const colorScheme = colorSchemes[index % colorSchemes.length];
             const isLarge = index % 7 === 0; 
@@ -169,9 +169,9 @@ export function Blog() {
                 
                 <WobbleCard
                   containerClassName={`
-                    ${isLarge ? 'md:col-span-2 lg:col-span-2 min-h-[400px]' : 
-                      isMedium ? 'md:col-span-2 lg:col-span-1 min-h-[350px]' : 
-                      'col-span-1 min-h-[300px]'}
+                    ${isLarge ? 'sm:col-span-2 lg:col-span-2 min-h-[350px] sm:min-h-[400px]' : 
+                      isMedium ? 'sm:col-span-2 lg:col-span-1 min-h-[300px] sm:min-h-[350px]' : 
+                      'col-span-1 min-h-[280px] sm:min-h-[300px]'}
                     ${colorScheme}
                     hover:scale-105 transition-transform duration-300
                     cursor-pointer group
@@ -179,25 +179,25 @@ export function Blog() {
                   className="relative overflow-hidden"
                 >
                   {/* SEO-optimized content structure */}
-                  <div className={`${isLarge ? 'max-w-lg' : 'max-w-xs'} relative z-10`}>
-                    <header className="mb-4">
+                  <div className={`${isLarge ? 'max-w-lg' : 'max-w-xs'} relative z-10 p-2 sm:p-0`}>
+                    <header className="mb-3 sm:mb-4">
                       <h2 className={`
-                        ${isLarge ? 'text-2xl md:text-3xl lg:text-4xl' : 'text-lg md:text-xl lg:text-2xl'}
-                        font-bold tracking-tight text-white mb-3 leading-tight
+                        ${isLarge ? 'text-xl sm:text-2xl md:text-3xl lg:text-4xl' : 'text-lg sm:text-xl lg:text-2xl'}
+                        font-bold tracking-tight text-white mb-2 sm:mb-3 leading-tight
                         group-hover:text-blue-200 transition-colors duration-300
                       `}>
                         {blog.title}
                       </h2>
                       
                       {/* Author and position for authority/trust */}
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                      <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center">
                           <span className="text-xs font-bold text-white">
                             {blog.name.split(' ').map(n => n[0]).join('')}
                           </span>
                         </div>
                         <div>
-                          <p className="text-sm font-medium text-white/90">{blog.name}</p>
+                          <p className="text-xs sm:text-sm font-medium text-white/90">{blog.name}</p>
                           <p className="text-xs text-white/70">{blog.position}</p>
                         </div>
                       </div>
@@ -205,8 +205,8 @@ export function Blog() {
 
                     {/* Meta description for SEO */}
                     <p className={`
-                      ${isLarge ? 'text-base/6' : 'text-sm/6'}
-                      text-white/80 mb-4 line-clamp-3
+                      ${isLarge ? 'text-sm sm:text-base/6' : 'text-xs sm:text-sm/6'}
+                      text-white/80 mb-3 sm:mb-4 line-clamp-3
                       group-hover:text-white/90 transition-colors duration-300
                     `}>
                       {blog.description.substring(0, isLarge ? 200 : 120)}...
@@ -217,8 +217,8 @@ export function Blog() {
                       <button 
                         onClick={() => setSelectedBlog(blog)}
                         className="
-                          bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full
-                          text-sm font-medium text-white
+                          bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full
+                          text-xs sm:text-sm font-medium text-white
                           hover:bg-white/30 transition-all duration-300
                           group-hover:scale-105
                         "
@@ -239,8 +239,8 @@ export function Blog() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none" />
                   
                   {/* Topic-based icon/visual indicator */}
-                  <div className="absolute top-4 right-4 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-white text-lg">
+                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <span className="text-white text-sm sm:text-lg">
                       {blog.title.includes('AI') ? '' :
                        blog.title.includes('SEO') ? '' :
                        blog.title.includes('UI/UX') ? '' :
@@ -266,26 +266,26 @@ export function Blog() {
         </div>
 
         {/* SEO Footer Section - Newsletter Card with Animation */}
-        <footer className="mt-16 text-center">
+        <footer className="mt-12 sm:mt-16 text-center px-4">
           <div className="relative group">
             {/* Background blur effect similar to meteors */}
             <div className="absolute inset-0 h-full w-full scale-[0.95] transform rounded-2xl bg-gradient-to-r from-blue-500 to-teal-500 blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none" />
             
             {/* Main newsletter card */}
-            <div className="relative z-20 overflow-hidden rounded-2xl border border-gray-800 bg-black/70 backdrop-blur-sm p-8 shadow-xl transform group-hover:scale-[1.02] transition-all duration-500">
+            <div className="relative z-20 overflow-hidden rounded-2xl border border-gray-800 bg-black/70 backdrop-blur-sm p-6 sm:p-8 shadow-xl transform group-hover:scale-[1.02] transition-all duration-500">
               {/* Meteors animation */}
               <Meteors number={12} />
               
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-4 transform group-hover:translate-y-[-2px] transition-transform duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 transform group-hover:translate-y-[-2px] transition-transform duration-300">
                   Stay Updated with Latest Insights
                 </h3>
-                <p className="text-gray-300 mb-6 max-w-2xl mx-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-gray-300 mb-4 sm:mb-6 max-w-2xl mx-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300 text-sm sm:text-base">
                   Get expert insights on web development trends, digital marketing strategies, and business growth tips delivered to your inbox.
                 </p>
                 <button 
                   onClick={() => setShowNewsletterModal(true)}
-                  className="bg-gradient-to-r from-blue-600 to-[#010618] px-8 py-3 rounded-full text-white font-medium hover:scale-105 transition-transform duration-300 shadow-lg"
+                  className="bg-gradient-to-r from-blue-600 to-[#010618] px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-medium hover:scale-105 transition-transform duration-300 shadow-lg text-sm sm:text-base"
                 >
                   Subscribe to Newsletter
                 </button>
@@ -299,54 +299,54 @@ export function Blog() {
       {selectedBlog && (
         <div 
           ref={blogModalRef}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-2 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto"
         >
-          <div className="relative max-w-4xl w-full max-h-[90vh] overflow-hidden rounded-2xl">
+          <div className="relative w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-xl sm:rounded-2xl my-4 sm:my-0">
             {/* Blog content with same color scheme as card */}
             <div className={`
               ${colorSchemes[blogData.findIndex(b => b.id === selectedBlog.id) % colorSchemes.length]}
-              p-8 overflow-y-auto max-h-[90vh] relative
+              p-4 sm:p-6 lg:p-8 overflow-y-auto max-h-[95vh] sm:max-h-[90vh] relative
               animate-in slide-in-from-bottom-4 fade-in-0 duration-500
             `}>
               {/* Close button */}
               <button
                 onClick={() => setSelectedBlog(null)}
-                className="absolute top-6 right-6 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors z-10"
+                className="absolute top-3 sm:top-6 right-3 sm:right-6 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors z-10"
               >
                 ✕
               </button>
 
               {/* Blog header */}
-              <div className="mb-8">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight pr-12">
+              <div className="mb-6 sm:mb-8">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight pr-10 sm:pr-12">
                   {selectedBlog.title}
                 </h1>
                 
                 {/* Author info */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-lg font-bold text-white">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <span className="text-base sm:text-lg font-bold text-white">
                       {selectedBlog.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
                   <div>
-                    <p className="text-lg font-medium text-white">{selectedBlog.name}</p>
+                    <p className="text-base sm:text-lg font-medium text-white">{selectedBlog.name}</p>
                     <p className="text-sm text-white/70">{selectedBlog.position}</p>
                   </div>
                 </div>
               </div>
 
               {/* Blog content */}
-              <div className="prose prose-lg prose-invert max-w-none">
-                <p className="text-lg text-white/90 leading-relaxed mb-6">
+              <div className="prose prose-sm sm:prose-lg prose-invert max-w-none">
+                <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-4 sm:mb-6">
                   {selectedBlog.description}
                 </p>
                 
                 {/* Additional content sections */}
-                <div className="space-y-6 text-white/80">
+                <div className="space-y-4 sm:space-y-6 text-white/80">
                   <section>
-                    <h2 className="text-2xl font-semibold text-white mb-4">Key Insights</h2>
-                    <p className="leading-relaxed">
+                    <h2 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Key Insights</h2>
+                    <p className="leading-relaxed text-sm sm:text-base">
                       This comprehensive guide explores the fundamental aspects of {selectedBlog.title.toLowerCase()}, 
                       providing actionable insights that businesses can implement immediately. Our research shows that 
                       companies following these strategies see significant improvements in their digital presence and ROI.
@@ -354,8 +354,8 @@ export function Blog() {
                   </section>
                   
                   <section>
-                    <h2 className="text-2xl font-semibold text-white mb-4">Implementation Strategy</h2>
-                    <p className="leading-relaxed">
+                    <h2 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Implementation Strategy</h2>
+                    <p className="leading-relaxed text-sm sm:text-base">
                       The implementation of these concepts requires a strategic approach. We recommend starting with 
                       a thorough analysis of your current situation, followed by a phased implementation plan that 
                       allows for testing and optimization at each stage.
@@ -363,8 +363,8 @@ export function Blog() {
                   </section>
                   
                   <section>
-                    <h2 className="text-2xl font-semibold text-white mb-4">Expected Outcomes</h2>
-                    <p className="leading-relaxed">
+                    <h2 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Expected Outcomes</h2>
+                    <p className="leading-relaxed text-sm sm:text-base">
                       By following the guidelines outlined in this article, businesses can expect to see measurable 
                       improvements in their target metrics within 3-6 months. The long-term benefits include 
                       enhanced brand recognition, improved customer engagement, and sustainable growth.
@@ -373,14 +373,14 @@ export function Blog() {
                 </div>
 
                 {/* CTA section */}
-                <div className="mt-8 p-6 bg-white/10 rounded-xl backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold text-white mb-3">Ready to Get Started?</h3>
-                  <p className="text-white/80 mb-4">
+                <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-white/10 rounded-xl backdrop-blur-sm">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">Ready to Get Started?</h3>
+                  <p className="text-white/80 mb-3 sm:mb-4 text-sm sm:text-base">
                     Let our experts help you implement these strategies for your business.
                   </p>
                   <button 
                     onClick={() => router.push('/call')}
-                    className="bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-white/90 transition-colors cursor-pointer"
+                    className="bg-white text-gray-900 px-4 sm:px-6 py-2 rounded-full font-medium hover:bg-white/90 transition-colors cursor-pointer text-sm sm:text-base"
                   >
                     Contact Us Today
                   </button>
@@ -397,11 +397,11 @@ export function Blog() {
           ref={newsletterModalRef}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
         >
-          <div className="relative max-w-md w-full animate-in slide-in-from-bottom-4 fade-in-0 duration-500">
+          <div className="relative max-w-md w-full mx-4 animate-in slide-in-from-bottom-4 fade-in-0 duration-500">
             {/* Newsletter form with same style as Footer */}
             <div className="relative">
               <div className="absolute inset-0 h-full w-full scale-[0.95] transform rounded-2xl bg-gradient-to-r from-blue-500 to-teal-500 blur-3xl opacity-40 pointer-events-none" />
-              <div className="relative z-20 flex flex-col items-start justify-end overflow-hidden rounded-2xl border border-gray-800 bg-black/70 backdrop-blur-sm p-8 shadow-xl">
+              <div className="relative z-20 flex flex-col items-start justify-end overflow-hidden rounded-2xl border border-gray-800 bg-black/70 backdrop-blur-sm p-6 sm:p-8 shadow-xl">
                 {/* Meteor animation */}
                 <Meteors number={15} />
                 
@@ -414,8 +414,8 @@ export function Blog() {
                 </button>
 
                 <div className="w-full relative z-10">
-                  <h2 className="text-2xl font-bold text-white mb-2">Subscribe to Newsletter</h2>
-                  <p className="text-gray-400 mb-6">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Subscribe to Newsletter</h2>
+                  <p className="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base">
                     Get expert insights on web development, digital marketing, and business growth delivered to your inbox.
                   </p>
 
@@ -510,7 +510,7 @@ export function Blog() {
         </div>
       )}
 
-      <div className="h-[40rem]items-center justify-center">
+      <div className="h-[30rem] sm:h-[40rem] flex flex-col items-center justify-center px-4">
         <TextHoverEffect text="COHORT" />
         <TextHoverEffect text="LAB" />
       </div>
