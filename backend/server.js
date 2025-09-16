@@ -84,8 +84,6 @@ app.use('/api/marketer', marketerRoutes);
 app.use('/api/partner', partnerRoutes);
 app.use('/api/consultancy', consultancyRoutes);
 app.use('/api/book-call', bookCallRoutes);
-app.use('/api/consultancy', consultancyRoutes);
-app.use('/api/book-call', bookCallRoutes);
 
 // 404 handler
 app.use('*', (req, res) => {
