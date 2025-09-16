@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
           <main className="relative">{children}</main>
 
           {/* Mobile-responsive floating dock - hidden on small screens when navbar actions are visible */}
-          <div className="fixed left-2 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center transition-opacity duration-300 opacity-60 hover:opacity-100 sm:left-4 lg:opacity-60 lg:hover:opacity-100">
+          <div className="fixed left-2 top-1/2 -translate-y-1/2 z-[60] flex flex-col items-center transition-opacity duration-300 opacity-90 hover:opacity-100 sm:left-4 lg:opacity-70 lg:hover:opacity-100">
             <Floating />
           </div>
 
