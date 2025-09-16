@@ -8,9 +8,9 @@ export function Project4() {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl md:text-[6rem] font-bold mt-1 leading-none mb-20">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[6rem] font-bold mt-1 leading-none mb-12 sm:mb-16 lg:mb-20 px-4 text-center">
               Vital Care - Clinic Management System<br />
-              <span className="text-4xl font-semibold text-black dark:text-white">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black dark:text-white">
                 ....
               </span>
             </h1>
@@ -19,9 +19,7 @@ export function Project4() {
         <img
           src='/vital.png'
           alt="hero"
-          height={720}
-          width={1400}
-          className="mx-auto rounded-2xl object-cover h-full object-left-top"
+          className="mx-auto rounded-2xl object-cover w-full h-auto max-w-full object-left-top"
           draggable={false} />
       </ContainerScroll>
     </div>

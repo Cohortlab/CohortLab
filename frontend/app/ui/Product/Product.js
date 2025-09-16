@@ -17,10 +17,10 @@ export function Product() {
       <Project4 />
       <Project5 />
 
-      <div className="h-[40rem]items-center justify-center">
-      <TextHoverEffect text="COHORT" />
-      <TextHoverEffect text="LAB" />
-    </div>
+      <div className="h-[30rem] sm:h-[40rem] flex flex-col items-center justify-center px-4">
+        <TextHoverEffect text="COHORT" />
+        <TextHoverEffect text="LAB" />
+      </div>
     </div>
   );
 }
