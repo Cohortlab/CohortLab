@@ -547,17 +547,19 @@ const data = [
   const About = () => {
   return (
     <div>
-    <div>
+    <div className="w-full min-h-screen bg-background">
     {/* <div className="mt-16 sm:mt-12 md:mt-16 lg:mt-20 mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-20"> */}
-    <div className="mt-75">
-      <TextGenerateEffect words={words} />
+    <div className="pt-8 sm:pt-12 md:pt-20 lg:pt-40 xl:pt-60 px-3 sm:px-4 md:px-8 lg:px-12 xl:px-16">
+      <div className="max-w-4xl mx-auto">
+        <TextGenerateEffect words={words} />
+      </div>
     </div>
-          <div className="relative w-full overflow-clip">
+          <div className="relative w-full px-2 sm:px-4 md:px-6 lg:px-8 mt-8 sm:mt-12 md:mt-16">
             <Timeline data={data} />
           </div>
     
-     <div className="flex flex-row items-center justify-center py-10 sm:py-20 min-h-screen md:h-auto bg-black relative w-full">
-      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
+     <div className="flex flex-col items-center justify-start py-4 sm:py-8 md:py-20 min-h-[100vh] bg-black relative w-full">
+      <div className="max-w-7xl mx-auto w-full relative h-auto min-h-[90vh] sm:min-h-[80vh] md:h-[40rem] px-2 sm:px-4">
         <motion.div
           initial={{
             opacity: 0,
@@ -570,17 +572,17 @@ const data = [
           transition={{
             duration: 1,
           }}
-          className="div"
+          className="relative z-50 pt-8 sm:pt-12 md:pt-16 pb-4 sm:pb-8"
         >
-          <h2 className="text-center text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-white">
+          <h2 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-3 sm:mb-4 px-2">
             We provide services worldwide
           </h2>
-          <p className="text-center text-sm sm:text-base md:text-lg font-normal text-neutral-200 max-w-md mt-2 mx-auto px-4">
+          <p className="text-center text-sm sm:text-base md:text-lg font-normal text-neutral-200 max-w-sm sm:max-w-md md:max-w-lg mt-2 mx-auto px-4">
              And we build trust and long-term relationships with our clients.
           </p>
         </motion.div>
-        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40" />
-        <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
+        <div className="absolute w-full bottom-0 inset-x-0 h-20 sm:h-32 md:h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40" />
+        <div className="absolute w-full bottom-0 sm:-bottom-5 md:-bottom-20 h-60 sm:h-72 md:h-96 lg:h-full z-10">
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
       </div>
@@ -589,9 +591,11 @@ const data = [
     <FounderInfo />
     </div>
 
-    <div className="h-[40rem]items-center justify-center">
-            <TextHoverEffect text="COHORT" />
-            <TextHoverEffect text="LAB" />
+    <div className="h-[30rem] sm:h-[35rem] md:h-[40rem] flex items-center justify-center px-4">
+            <div className="text-center">
+              <TextHoverEffect text="COHORT" />
+              <TextHoverEffect text="LAB" />
+            </div>
           </div>
     
     </div>

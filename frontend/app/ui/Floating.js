@@ -74,6 +74,7 @@ export function Floating() {
       <FloatingDock
         // Mobile responsive positioning
         mobileClassName="translate-x-0 translate-y-0"
+        desktopClassName=""
         items={links} />
     </div>
   );
