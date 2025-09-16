@@ -15,19 +15,55 @@ export function Blog() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [apiMessage, setApiMessage] = useState('');
+  const [originalScrollPosition, setOriginalScrollPosition] = useState({ x: 0, y: 0 });
   
   // Refs for auto-scroll functionality
   const blogModalRef = useRef(null);
   const newsletterModalRef = useRef(null);
   const router = useRouter();
 
-  // Auto-scroll to modal when opened
+  // Function to open blog modal and center it in viewport
+  const openBlogModal = (blog) => {
+    console.log('Opening blog modal for:', blog.title); // Debug log
+    
+    // Store current scroll position
+    setOriginalScrollPosition({
+      x: window.scrollX,
+      y: window.scrollY
+    });
+    
+    setSelectedBlog(blog);
+    
+    // Disable body scroll when modal is open for better focus
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Function to close blog modal and restore scroll
+  const closeBlogModal = () => {
+    console.log('Closing blog modal'); // Debug log
+    setSelectedBlog(null);
+    document.body.style.overflow = 'unset';
+    
+    // Restore original scroll position
+    setTimeout(() => {
+      window.scrollTo({
+        top: originalScrollPosition.y,
+        left: originalScrollPosition.x,
+        behavior: 'smooth'
+      });
+    }, 100);
+  };
+
+  // Effect to handle modal centering and focus when opened
   useEffect(() => {
     if (selectedBlog && blogModalRef.current) {
-      blogModalRef.current.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'center' 
-      });
+      console.log('Modal useEffect triggered, selectedBlog:', selectedBlog.title); // Debug log
+      // Small delay to ensure modal is rendered
+      setTimeout(() => {
+        // Focus the modal for accessibility
+        blogModalRef.current.focus();
+        console.log('Modal focused and should be visible'); // Debug log
+      }, 100);
     }
   }, [selectedBlog]);
 
@@ -39,6 +75,13 @@ export function Blog() {
       });
     }
   }, [showNewsletterModal]);
+
+  // Cleanup effect to restore body scroll on unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
 
   // SEO-optimized color schemes and gradients for different topics
   const colorSchemes = [
@@ -151,7 +194,66 @@ export function Blog() {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 px-2 sm:px-3 lg:px-0">
+        {/* Mobile List View */}
+        <div className="block sm:hidden">
+          <div className="space-y-3 px-4">
+            {blogData.map((blog, index) => (
+              <div
+                key={blog.id}
+                className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 cursor-pointer hover:bg-gray-700/50 transition-all duration-300 active:scale-95"
+                onClick={() => openBlogModal(blog)}
+              >
+                <div className="flex items-start gap-3">
+                  {/* Topic Icon */}
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-sm">
+                      {blog.title.includes('AI') ? '🤖' :
+                       blog.title.includes('SEO') ? '🔍' :
+                       blog.title.includes('UI/UX') ? '🎨' :
+                       blog.title.includes('Mobile') ? '📱' :
+                       blog.title.includes('Cloud') ? '☁️' :
+                       blog.title.includes('Security') ? '🔒' :
+                       blog.title.includes('E-commerce') ? '🛒' :
+                       blog.title.includes('Marketing') ? '📈' :
+                       blog.title.includes('Social') ? '👥' : '💡'}
+                    </span>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-white font-semibold text-sm leading-tight line-clamp-2 mb-1">
+                      {blog.title}
+                    </h3>
+                    <p className="text-gray-300 text-xs line-clamp-2 mb-2">
+                      {blog.description.substring(0, 100)}...
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center">
+                          <span className="text-xs font-bold text-white">
+                            {blog.name.split(' ').map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                        <span className="text-xs text-gray-400">{blog.name}</span>
+                      </div>
+                      <span className="text-xs text-gray-500">2 min read</span>
+                    </div>
+                  </div>
+                  
+                  {/* Arrow */}
+                  <div className="flex-shrink-0">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop/Tablet Card View */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 px-2 sm:px-3 lg:px-0">
           {blogData.map((blog, index) => {
             const colorScheme = colorSchemes[index % colorSchemes.length];
             const isLarge = index % 7 === 0; 
@@ -180,8 +282,9 @@ export function Blog() {
                     rounded-lg sm:rounded-xl md:rounded-2xl relative overflow-hidden
                     shadow-md hover:shadow-xl border border-white/10
                   `}
-                  onClick={() => setSelectedBlog(blog)}
+                  onClick={() => openBlogModal(blog)}
                 >
+                
                   {/* Content container with proper mobile padding and fixed layout */}
                   <div className="relative z-10 p-4 sm:p-5 md:p-6 h-full flex flex-col">
                     {/* Main content area */}
@@ -226,7 +329,7 @@ export function Blog() {
                           <button 
                             onClick={(e) => {
                               e.stopPropagation();
-                              setSelectedBlog(blog);
+                              openBlogModal(blog);
                             }}
                             className="
                               bg-white/20 backdrop-blur-sm px-4 py-2 sm:px-5 sm:py-2.5 rounded-full
@@ -254,15 +357,15 @@ export function Blog() {
                   {/* Topic-based icon/visual indicator */}
                   <div className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
                     <span className="text-white text-sm sm:text-lg">
-                      {blog.title.includes('AI') ? '🤖' :
-                       blog.title.includes('SEO') ? '🔍' :
-                       blog.title.includes('UI/UX') ? '🎨' :
-                       blog.title.includes('Mobile') ? '📱' :
-                       blog.title.includes('Cloud') ? '☁️' :
-                       blog.title.includes('Security') ? '🔒' :
-                       blog.title.includes('E-commerce') ? '🛒' :
-                       blog.title.includes('Marketing') ? '📈' :
-                       blog.title.includes('Social') ? '👥' : '💡'}
+                      {blog.title.includes('AI') ? '' :
+                       blog.title.includes('SEO') ? '' :
+                       blog.title.includes('UI/UX') ? '' :
+                       blog.title.includes('Mobile') ? '' :
+                       blog.title.includes('Cloud') ? '' :
+                       blog.title.includes('Security') ? '' :
+                       blog.title.includes('E-commerce') ? '' :
+                       blog.title.includes('Marketing') ? '' :
+                       blog.title.includes('Social') ? '' : ''}
                     </span>
                   </div>
 
@@ -312,31 +415,57 @@ export function Blog() {
       {selectedBlog && (
         <div 
           ref={blogModalRef}
-          className="fixed inset-0 z-50 flex items-start justify-center p-2 sm:p-4 bg-black/70 backdrop-blur-sm overflow-y-auto"
+          className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
-              setSelectedBlog(null);
+              closeBlogModal();
             }
           }}
+          style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '2rem',
+            zIndex: 9999,
+            opacity: 1,
+            visibility: 'visible'
+          }}
+          tabIndex={-1}
         >
-          <div className="relative w-full max-w-4xl min-h-screen sm:min-h-0 sm:max-h-[95vh] overflow-hidden rounded-none sm:rounded-xl md:rounded-2xl my-0 sm:my-4">
+          <div 
+            className="relative w-full max-w-4xl max-h-[85vh] overflow-hidden rounded-xl md:rounded-2xl shadow-2xl animate-in slide-in-from-bottom-4 fade-in-0 duration-500"
+            style={{
+              position: 'relative',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              margin: '0',
+              opacity: 1
+            }}
+          >
             {/* Blog content with same color scheme as card */}
             <div className={`
               ${colorSchemes[blogData.findIndex(b => b.id === selectedBlog.id) % colorSchemes.length]}
-              p-4 sm:p-6 lg:p-8 overflow-y-auto min-h-screen sm:min-h-0 sm:max-h-[95vh] relative
-              animate-in slide-in-from-bottom-4 fade-in-0 duration-500
+              p-4 sm:p-6 lg:p-8 overflow-y-auto max-h-[85vh] relative
+              border border-white/20
             `}>
               {/* Close button */}
               <button
-                onClick={() => setSelectedBlog(null)}
-                className="fixed sm:absolute top-3 right-3 sm:top-6 sm:right-6 w-10 h-10 sm:w-10 sm:h-10 bg-black/50 sm:bg-white/20 hover:bg-black/70 sm:hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors z-20 backdrop-blur-sm"
+                onClick={closeBlogModal}
+                className="absolute top-3 right-3 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-black/70 hover:bg-black/90 rounded-full flex items-center justify-center text-white transition-colors z-30 backdrop-blur-sm border border-white/20"
                 aria-label="Close modal"
               >
                 <span className="text-lg font-bold">✕</span>
               </button>
 
               {/* Blog header */}
-              <div className="mb-6 sm:mb-8 pt-12 sm:pt-0">
+              <div className="mb-6 sm:mb-8 pt-4 sm:pt-0">
                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight pr-12 sm:pr-16">
                   {selectedBlog.title}
                 </h1>
@@ -399,7 +528,7 @@ export function Blog() {
                   </p>
                   <button 
                     onClick={() => {
-                      setSelectedBlog(null);
+                      closeBlogModal();
                       router.push('/call');
                     }}
                     className="bg-white text-gray-900 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium hover:bg-white/90 active:bg-white/80 transition-colors cursor-pointer text-sm sm:text-base touch-manipulation"
@@ -408,8 +537,8 @@ export function Blog() {
                   </button>
                 </div>
 
-                {/* Safe area for mobile */}
-                <div className="h-8 sm:h-0"></div>
+                {/* Safe area for mobile and bottom padding */}
+                <div className="h-12 sm:h-8"></div>
               </div>
             </div>
           </div>

@@ -298,8 +298,18 @@ const Agile = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2 }}
         >
-          <div className="flex items-center space-x-3 sm:space-x-6 md:space-x-8 bg-gradient-to-r from-gray-700/80 to-gray-900/80 backdrop-blur-lg border border-white/20 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full shadow-lg">
-            <span className="text-white font-semibold text-sm sm:text-base">Easy Building</span>
+          <div 
+            className="flex items-center space-x-3 sm:space-x-6 md:space-x-8 bg-gradient-to-r from-gray-700/80 to-gray-900/80 backdrop-blur-lg border border-white/20 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full shadow-lg cursor-pointer hover:bg-gray-700/90 transition"
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.location.href = '/services';
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="See our services"
+          >
+            <span className="text-white font-semibold text-sm sm:text-base">Easy Building - See our services </span>
             <motion.svg 
               width="30" 
               height="15" 
