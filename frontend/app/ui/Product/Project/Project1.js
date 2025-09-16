@@ -1,21 +1,20 @@
 "use client";
 import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
 
 export function Project1() {
   return (
     <div className="flex flex-col overflow-hidden">
-      <ContainerScroll
-        titleComponent={
-          <>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[6rem] font-bold mt-1 leading-none mb-12 sm:mb-16 lg:mb-20 px-4 text-center">
-              Sync AI<br />
-              <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black dark:text-white">
-                ....
-              </span>
-            </h1>
-          </>
-        }>
+      {/* Large boxed title like Services page, but for Sync AI */}
+      <div className="mx-auto max-w-lg mb-10 py-2 text-2xl font-bold tracking-tight md:text-4xl text-center">
+        <div className="mb-2">Sync AI</div>
+        <PointerHighlight>
+          <span className="text-6xl md:text-7xl lg:text-[6rem] font-extrabold">Sync AI</span>
+        </PointerHighlight>
+      </div>
+
+      <ContainerScroll>
         <img
           src='/sync.png'
           alt="hero"
