@@ -147,3 +147,9 @@
 .animate-meteor-effect {
   animation: meteor linear infinite;
 }
+
+
+/* Hide default cursor */
+* {
+  cursor: none !important;
+}

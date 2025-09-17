@@ -4,7 +4,7 @@ import "./globals.css";
 import { NavbarMain } from "./ui/Navbar";
 import { Floating } from "./ui/Floating";
 import Footer from "./ui/Footer";
-
+import CustomCursor from "@/components/CustomCursor";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -48,6 +48,7 @@ export default function RootLayout({ children }) {
         }} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen dark`} cz-shortcut-listen="true">
+        <CustomCursor />
           {/* Navbar */}
           <NavbarMain />
 
